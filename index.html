@@ -95,10 +95,7 @@
             <section class="experience" id="experience">
                 <div class="section-header">
                     <h2>Experience</h2>
-                    <p>
-                        Recent roles and projects that showcase embedded,
-                        real-time, and communications work.
-                    </p>
+                    <p>Roles and leadership work.</p>
                 </div>
                 <div class="experience-grid">
                     <div class="experience-list">
@@ -125,6 +122,27 @@
                                 </div>
                             </div>
                         </a>
+                    </div>
+                    <div class="experience-preview">
+                        <img
+                            src="images/avionics-team-lead/cover.png"
+                            alt="Preview of Avionics Team Lead project"
+                            data-default="images/avionics-team-lead/cover.png"
+                        />
+                        <div class="experience-caption">
+                            Preliminary Design Review 2025
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="experience" id="projects-home">
+                <div class="section-header">
+                    <h2>Projects</h2>
+                    <p>Recent technical builds and tooling.</p>
+                </div>
+                <div class="experience-grid">
+                    <div class="experience-list">
                         <a
                             class="experience-card"
                             href="projects.html#airbrakes"
@@ -200,12 +218,12 @@
                     </div>
                     <div class="experience-preview">
                         <img
-                            src="images/avionics-team-lead/cover.png"
-                            alt="Preview of Avionics Team Lead project"
-                            data-default="images/avionics-team-lead/cover.png"
+                            src="images/airbrakes/cover.png"
+                            alt="Preview of Airbrakes Flight Controller project"
+                            data-default="images/airbrakes/cover.png"
                         />
                         <div class="experience-caption">
-                            Preliminary Design Review 2025
+                            Flight Controller Revision 1
                         </div>
                     </div>
                 </div>
@@ -278,10 +296,10 @@
                     <div class="contact-item">
                         <span class="contact-label">GitHub</span>
                         <a
-                            href="https://github.com/Logan-Rohlfs"
+                            href="https://github.com/loganrohlfs"
                             target="_blank"
                             rel="noreferrer"
-                            >github.com/Logan-Rohlfs</a
+                            >github.com/loganrohlfs</a
                         >
                     </div>
                 </div>
@@ -291,38 +309,45 @@
         <footer>&copy; 2025 Logan Rohlfs</footer>
 
         <script>
-            const experienceCards =
-                document.querySelectorAll(".experience-card");
-            const previewImage = document.querySelector(
-                ".experience-preview img"
-            );
-            const previewCaption = document.querySelector(
-                ".experience-caption"
-            );
-            const setPreview = (card) => {
-                const imageSrc = card.dataset.image;
-                const title =
-                    card.querySelector(".experience-title")?.textContent;
-                const caption = card.dataset.caption;
-                previewImage.src = imageSrc;
-                if (title) {
-                    previewImage.alt = `Preview of ${title} project`;
-                }
-                if (previewCaption) {
-                    previewCaption.textContent = caption || "";
-                }
-                experienceCards.forEach((c) =>
-                    c.classList.toggle("is-active", c === card)
+            document.querySelectorAll(".experience-grid").forEach((grid) => {
+                const experienceCards =
+                    grid.querySelectorAll(".experience-card");
+                const previewImage = grid.querySelector(
+                    ".experience-preview img"
                 );
-            };
+                const previewCaption = grid.querySelector(
+                    ".experience-caption"
+                );
 
-            if (experienceCards.length && previewImage) {
-                setPreview(experienceCards[0]);
-                experienceCards.forEach((card) => {
-                    card.addEventListener("mouseenter", () => setPreview(card));
-                    card.addEventListener("focus", () => setPreview(card));
-                });
-            }
+                const setPreview = (card) => {
+                    const imageSrc = card.dataset.image;
+                    const title =
+                        card.querySelector(".experience-title")?.textContent;
+                    const caption = card.dataset.caption;
+                    if (previewImage && imageSrc) {
+                        previewImage.src = imageSrc;
+                        if (title) {
+                            previewImage.alt = `Preview of ${title} project`;
+                        }
+                    }
+                    if (previewCaption) {
+                        previewCaption.textContent = caption || "";
+                    }
+                    experienceCards.forEach((c) =>
+                        c.classList.toggle("is-active", c === card)
+                    );
+                };
+
+                if (experienceCards.length && previewImage) {
+                    setPreview(experienceCards[0]);
+                    experienceCards.forEach((card) => {
+                        card.addEventListener("mouseenter", () =>
+                            setPreview(card)
+                        );
+                        card.addEventListener("focus", () => setPreview(card));
+                    });
+                }
+            });
 
             // Icon swapper: show image if it loads, otherwise show initials.
             document
