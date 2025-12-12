@@ -391,6 +391,7 @@ section.project h2 {
     border-radius: var(--border-radius);
     align-self: stretch;
     position: relative;
+    max-height: 480px;
 }
 
 .project-content img {
