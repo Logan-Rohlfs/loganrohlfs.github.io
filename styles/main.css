@@ -190,7 +190,7 @@ nav .btn {
 }
 
 nav .btn:hover {
-    background: #007a8c;
+    background: var(--color-accent);
 }
 
 main {
@@ -527,11 +527,11 @@ section.project h2 {
 }
 
 .pill {
-    background: #eef6f8;
-    color: #0b2f3a;
+    background: #ede8f7;
+    color: var(--color-primary);
     padding: 10px 12px;
     border-radius: 999px;
-    border: 1px solid #d6e5ea;
+    border: 1px solid #e1d8f3;
     font-weight: 600;
     font-size: 0.95rem;
 }
@@ -560,7 +560,7 @@ section.project h2 {
 }
 
 .contact-link {
-    color: #0a3f52;
+    color: var(--color-primary);
     text-decoration: none;
     font-weight: 600;
 }
