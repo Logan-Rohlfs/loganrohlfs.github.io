@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Logan Rohlfs | Projects</title>
+        <link rel="stylesheet" href="styles/main.css" />
+    </head>
+    <body class="page">
+        <header class="page-hero">
+            <div class="page-hero-inner">
+                <div>
+                    <p class="eyebrow">Portfolio</p>
+                    <h1>Projects</h1>
+                    <p class="lede">
+                        A collection of embedded, controls, and telemetry builds
+                        with a focus on reliable testable firmware and hardware
+                        that ships.
+                    </p>
+                </div>
+                <nav class="page-nav">
+                    <a class="btn" href="index.html">Home</a>
+                    <a class="btn" href="#airbrakes">Airbrakes</a>
+                    <a class="btn" href="#horizon-tracking">Groundstation</a>
+                    <a class="btn" href="#apex">Apex FC</a>
+                    <a class="btn" href="#connectedu">ConnectEDU</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="page-main">
+            <section class="project-section" id="airbrakes">
+                <div class="project-media">
+                    <img
+                        src="images/airbrakes-flight-controller-cover.png"
+                        alt="Airbrakes Flight Controller cover"
+                    />
+                </div>
+                <div class="project-content">
+                    <p class="eyebrow">Embedded Controls • Aug 2024 – Jul 2025</p>
+                    <h2>Airbrakes Flight Controller</h2>
+                    <p>
+                        Designed hardware, firmware, and control logic enabling
+                        automatic in-flight aero-braking to hit target altitude
+                        for Space Raiders IREC 2025.
+                    </p>
+                    <ul class="project-bullets">
+                        <li>
+                            Iterated sensor performance, timing discipline, and
+                            launch diagnostics across hardware and firmware.
+                        </li>
+                        <li>
+                            Coordinated avionics, recovery, and airbrakes teams
+                            to align deployment and mission objectives.
+                        </li>
+                        <li>
+                            Expanded firmware test coverage (timing checks,
+                            sensor sanity, on-pad diagnostics) to reduce risk.
+                        </li>
+                        <li>
+                            Applied filtering and state estimation (EWRA/EKF) to
+                            improve embedded data quality feeding PID loops.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="project-section" id="horizon-tracking">
+                <div class="project-media">
+                    <img
+                        src="images/horizon-tracking-groundstation-cover.png"
+                        alt="Horizon Tracking Groundstation cover"
+                    />
+                </div>
+                <div class="project-content">
+                    <p class="eyebrow">Ground Systems • Aug 2025 – Present</p>
+                    <h2>Horizon Tracking Groundstation</h2>
+                    <p>
+                        Building a Raspberry Pi 5 groundstation with telemetry
+                        dashboard, 3D trajectory mapping, and automated antenna
+                        tracking for redundant downlink.
+                    </p>
+                    <ul class="project-bullets">
+                        <li>
+                            Multi-link RF architecture for redundant telemetry
+                            and video reception.
+                        </li>
+                        <li>
+                            GPS/inertial dead-reckoning between telemetry
+                            packets for smoother pointing.
+                        </li>
+                        <li>
+                            Prototyping pan-tilt actuation with embedded control
+                            loops and a web UI.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="project-section" id="apex">
+                <div class="project-media">
+                    <img
+                        src="images/apex-flight-computer-cover.png"
+                        alt="Apex Flight Computer cover"
+                    />
+                </div>
+                <div class="project-content">
+                    <p class="eyebrow">Avionics • Aug 2025 – Present</p>
+                    <h2>APEX Flight Computer</h2>
+                    <p>
+                        ESP32-S3 flight computer PCB and firmware with FreeRTOS,
+                        dual-core task separation, and EKF-based sensor fusion
+                        for Space Raiders IREC 2025.
+                    </p>
+                    <ul class="project-bullets">
+                        <li>
+                            Redundant sensor suites and stackup tuned for signal
+                            integrity; board bring-up and validation.
+                        </li>
+                        <li>
+                            Real-time PID control loops using simulation-driven
+                            parameters to support airbrake actuation.
+                        </li>
+                        <li>
+                            FreeRTOS scheduling, dual-core partitioning, and
+                            telemetry integration for flight logging.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="project-section" id="connectedu">
+                <div class="project-media">
+                    <img
+                        src="images/connectedu-cover.png"
+                        alt="ConnectEDU cover"
+                    />
+                </div>
+                <div class="project-content">
+                    <p class="eyebrow">Product Design • Aug 2023 – May 2024</p>
+                    <h2>ConnectEDU</h2>
+                    <p>
+                        iOS app built with a cross-platform team to connect
+                        students and mentors with curated paths and lightweight
+                        progress tracking.
+                    </p>
+                    <ul class="project-bullets">
+                        <li>
+                            Designed and implemented core app architecture and
+                            data flows in SwiftUI for modularity.
+                        </li>
+                        <li>
+                            Coordinated with Android/backend teams and used
+                            milestone-driven execution.
+                        </li>
+                        <li>
+                            Applied project management practices (idea proposals,
+                            Gantt planning, milestones).
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>&copy; 2025 Logan Rohlfs</footer>
+    </body>
+</html>
