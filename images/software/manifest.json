@@ -1,0 +1,54 @@
+[
+  {
+    "src": "images/software/git.png",
+    "caption": "Git"
+  },
+  {
+    "src": "images/software/github.png",
+    "caption": "GitHub"
+  },
+  {
+    "src": "images/software/matlab.png",
+    "caption": "MATLAB"
+  },
+  {
+    "src": "images/software/kicad.png",
+    "caption": "KiCad"
+  },
+  {
+    "src": "images/software/altium.png",
+    "caption": "Altium"
+  },
+  {
+    "src": "images/software/vscode.png",
+    "caption": "VS Code"
+  },
+  {
+    "src": "images/software/fusion360.png",
+    "caption": "Fusion 360"
+  },
+  {
+    "src": "images/software/onshape.png",
+    "caption": "Onshape"
+  },
+  {
+    "src": "images/software/cmake.png",
+    "caption": "CMake"
+  },
+  {
+    "src": "images/software/linux.png",
+    "caption": "Linux"
+  },
+  {
+    "src": "images/software/windows.png",
+    "caption": "Windows"
+  },
+  {
+    "src": "images/software/openrocket.png",
+    "caption": "OpenRocket"
+  },
+  {
+    "src": "images/software/rocketpy.png",
+    "caption": "RocketPy"
+  }
+]

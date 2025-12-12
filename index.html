@@ -15,6 +15,7 @@
                     <a class="nav-link" href="index.html">Home</a>
                     <a class="nav-link" href="projects.html">Projects</a>
                     <a class="nav-link" href="experience.html">Experience</a>
+                    <a class="nav-link" href="photography.html">Photography</a>
                 </nav>
 
                 <!-- Centered Hero Content -->
@@ -335,6 +336,20 @@ Outside of structured projects, I am constantly learning new tools and approache
                 </div>
             </section>
 
+            <section class="software-section" id="software">
+                <div class="section-header">
+                    <h2>Technical Software Experience</h2>
+                </div>
+                <div class="software-grid" id="software-grid"></div>
+            </section>
+
+            <section class="photo-section" id="photography-home">
+                <div class="section-header">
+                    <h2>Photography</h2>
+                </div>
+                <div class="photo-carousel" id="photo-carousel-home"></div>
+            </section>
+
             <section class="education" id="education">
                 <h2>Education</h2>
                 <div class="education-cards">
@@ -498,6 +513,87 @@ Outside of structured projects, I am constantly learning new tools and approache
             document.querySelectorAll("[data-md]").forEach((el) => {
                 el.innerHTML = marked.parse(el.textContent);
             });
+
+
+            const slugFromSrc = (src) =>
+                "photo-" +
+                src
+                    .split("/")
+                    .pop()
+                    .replace(/\.[^/.]+$/, "")
+                    .replace(/[^a-z0-9]+/gi, "-")
+                    .toLowerCase();
+
+            const renderPhotos = (targetId, { linkToPage = false } = {}) => {
+                const container = document.getElementById(targetId);
+                if (!container) return;
+                fetch("images/photography/manifest.json")
+                    .then((res) => res.json())
+                    .then((items) => {
+                        if (!Array.isArray(items)) return;
+                        container.innerHTML = items
+                            .map((item) => {
+                                const slug = slugFromSrc(item.src);
+                                const inner = `
+                                        <div class="photo-card">
+                                            <img src="${item.src}" alt="${item.caption || ""}" />
+                                            ${
+                                                item.caption
+                                                    ? `<div class="photo-caption">${item.caption}</div>`
+                                                    : ""
+                                            }
+                                        </div>
+                                    `;
+                                return linkToPage
+                                    ? `<a class="photo-card-link" href="photography.html#${slug}">${inner}</a>`
+                                    : inner;
+                            })
+                            .join("");
+                    })
+                    .catch(() => {
+                        container.innerHTML =
+                            "<p>Unable to load photos. Ensure manifest.json lists your images.</p>";
+                    });
+            };
+
+            const preloadPhotos = () => {
+                fetch("images/photography/manifest.json")
+                    .then((res) => res.json())
+                    .then((items) => {
+                        if (!Array.isArray(items)) return;
+                        items.forEach((item) => {
+                            const img = new Image();
+                            img.src = item.src;
+                        });
+                    })
+                    .catch(() => {});
+            };
+
+            preloadPhotos();
+            renderPhotos("photo-carousel-home", { linkToPage: true });
+
+            // Software logos
+            const renderSoftware = () => {
+                const container = document.getElementById("software-grid");
+                if (!container) return;
+                fetch("images/software/manifest.json")
+                    .then((res) => res.json())
+                    .then((items) => {
+                        if (!Array.isArray(items)) return;
+                        container.innerHTML = items
+                            .map(
+                                (item) =>
+                                    `<img src="${item.src}" alt="${item.caption || ""}" />`
+                            )
+                            .join("");
+                    })
+                    .catch(() => {
+                        container.innerHTML =
+                            "<p>Unable to load software logos. Ensure manifest.json lists your images.</p>";
+                    });
+            };
+
+            renderSoftware();
 
             document.querySelectorAll(".experience-grid").forEach((grid) => {
                 const experienceCards =
