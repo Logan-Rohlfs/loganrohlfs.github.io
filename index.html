@@ -105,11 +105,15 @@
                         <a
                             class="experience-card"
                             href="experience.html#avionics"
-                            data-image="images/avionics-team-lead-cover.png"
+                            data-image="images/avionics-team-lead/cover.png"
                             data-caption="Preliminary Design Review 2025"
                         >
                             <div class="experience-icon" aria-hidden="true">
-                                AT
+                                <img
+                                    src="images/avionics-team-lead/icon.png"
+                                    alt=""
+                                />
+                                <span class="experience-icon-initials">AT</span>
                             </div>
                             <div class="experience-meta">
                                 <div class="experience-title">
@@ -124,11 +128,11 @@
                         <a
                             class="experience-card"
                             href="projects.html#airbrakes"
-                            data-image="images/airbrakes-flight-controller-cover.png"
-                            data-caption="Flight Testing 2025"
+                            data-image="images/airbrakes/cover.png"
+                            data-caption="Flight Controller Revision 1"
                         >
                             <div class="experience-icon" aria-hidden="true">
-                                AF
+                                <span class="experience-icon-initials">AF</span>
                             </div>
                             <div class="experience-meta">
                                 <div class="experience-title">
@@ -143,11 +147,11 @@
                         <a
                             class="experience-card"
                             href="projects.html#horizon-tracking"
-                            data-image="images/horizon-tracking-groundstation-cover.png"
-                            data-caption="Ground Ops 2025"
+                            data-image="images/horizon-tracking/cover.png"
+                            data-caption="HORIZON Live Telemetry Dashboard"
                         >
                             <div class="experience-icon" aria-hidden="true">
-                                HG
+                                <span class="experience-icon-initials">HG</span>
                             </div>
                             <div class="experience-meta">
                                 <div class="experience-title">
@@ -162,11 +166,11 @@
                         <a
                             class="experience-card"
                             href="projects.html#apex"
-                            data-image="images/apex-flight-computer-cover.png"
-                            data-caption="Bench Bring-up 2025"
+                            data-image="images/apex/cover.png"
+                            data-caption="APEX Flight Computer PCB"
                         >
                             <div class="experience-icon" aria-hidden="true">
-                                AP
+                                <span class="experience-icon-initials">AP</span>
                             </div>
                             <div class="experience-meta">
                                 <div class="experience-title">
@@ -180,11 +184,11 @@
                         <a
                             class="experience-card"
                             href="projects.html#connectedu"
-                            data-image="images/connectedu-cover.png"
-                            data-caption="iOS UI Build 2024"
+                            data-image="images/connectedu/cover.png"
+                            data-caption="Connect EDU Login Screen"
                         >
                             <div class="experience-icon" aria-hidden="true">
-                                CE
+                                <span class="experience-icon-initials">CE</span>
                             </div>
                             <div class="experience-meta">
                                 <div class="experience-title">ConnectEDU</div>
@@ -196,9 +200,9 @@
                     </div>
                     <div class="experience-preview">
                         <img
-                            src="images/avionics-team-lead-cover.png"
+                            src="images/avionics-team-lead/cover.png"
                             alt="Preview of Avionics Team Lead project"
-                            data-default="images/avionics-team-lead-cover.png"
+                            data-default="images/avionics-team-lead/cover.png"
                         />
                         <div class="experience-caption">
                             Preliminary Design Review 2025
@@ -274,10 +278,10 @@
                     <div class="contact-item">
                         <span class="contact-label">GitHub</span>
                         <a
-                            href="https://github.com/loganrohlfs"
+                            href="https://github.com/Logan-Rohlfs"
                             target="_blank"
                             rel="noreferrer"
-                            >github.com/loganrohlfs</a
+                            >github.com/Logan-Rohlfs</a
                         >
                     </div>
                 </div>
@@ -319,6 +323,24 @@
                     card.addEventListener("focus", () => setPreview(card));
                 });
             }
+
+            // Icon swapper: show image if it loads, otherwise show initials.
+            document
+                .querySelectorAll(".experience-icon")
+                .forEach((iconWrapper) => {
+                    const img = iconWrapper.querySelector("img");
+                    if (!img) return;
+                    const showImage = () =>
+                        iconWrapper.classList.add("has-image");
+                    const hideImage = () =>
+                        iconWrapper.classList.remove("has-image");
+                    img.addEventListener("load", showImage);
+                    img.addEventListener("error", hideImage);
+                    // Trigger for cached images
+                    if (img.complete && img.naturalWidth > 0) {
+                        showImage();
+                    }
+                });
         </script>
     </body>
 </html>
