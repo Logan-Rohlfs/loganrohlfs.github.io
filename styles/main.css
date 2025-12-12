@@ -150,6 +150,9 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background: var(--color-bg);
     color: var(--color-text);
 }
@@ -192,6 +195,7 @@ nav .btn:hover {
 
 main {
     padding: 20px 40px;
+    flex: 1;
 }
 
 section {
@@ -311,7 +315,7 @@ section.project h2 {
 }
 
 .role-section .eyebrow {
-    color: #cce7ed;
+    color: var(--color-accent);
 }
 
 /* Experience Section */
@@ -428,7 +432,7 @@ section.project h2 {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     position: relative;
     width: 100%;
-    min-height: 340px;
+    min-height: 260px;
     padding: calc(var(--space-small) * 0.75);
     display: grid;
     grid-template-rows: 1fr auto;
@@ -454,6 +458,34 @@ section.project h2 {
     color: #333;
     text-align: center;
     line-height: 1.3;
+}
+
+.card-section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 4px;
+    font-weight: 700;
+    color: #1f2a30;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.card-section-header img {
+    height: 32px;
+    width: auto;
+    border-radius: 4px;
+}
+
+.card-section-header span::before {
+    content: "—";
+    margin-right: 6px;
+}
+
+.card-section-header span {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2;
 }
 
 /* About + Contact */
@@ -516,6 +548,71 @@ section.project h2 {
 .contact-label {
     font-weight: 700;
     color: #444;
+}
+
+.contact-link {
+    color: #0a3f52;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
+.contact-form-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.contact-form {
+    display: grid;
+    gap: 12px;
+}
+
+.contact-form label {
+    display: grid;
+    gap: 6px;
+    font-weight: 600;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--color-footer-border);
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.contact-submit {
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px 14px;
+    background: var(--color-secondary);
+    color: white;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+}
+
+.contact-submit:hover {
+    background: var(--color-accent);
+}
+
+.contact-note {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
 }
 
 @media (max-width: 900px) {
