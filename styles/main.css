@@ -304,6 +304,8 @@ section.project h2 {
     background: #e8eff3;
     padding: var(--space-small);
     display: flex;
+    flex-direction: column;
+    gap: 12px;
     align-items: center;
     justify-content: center;
 }

@@ -35,33 +35,26 @@
                         src="images/airbrakes/cover.png"
                         alt="Airbrakes Flight Controller cover"
                     />
+                    <img
+                        src="images/airbrakes/photos/afc-crash.jpg"
+                        alt="Airbrakes crash photo"
+                    />
+                    <img
+                        src="images/airbrakes/photos/raiderx-flight.jpg"
+                        alt="RaiderX flight test photo"
+                    />
                 </div>
                 <div class="project-content">
                     <p class="eyebrow">Space Raiders • Aug 2024 – Jul 2025</p>
                     <h2>Airbrakes Flight Controller</h2>
-                    <p>
-                        Designed hardware, firmware, and control logic enabling
-                        automatic in-flight aero-braking to hit target altitude
-                        for Space Raiders IREC 2025.
-                    </p>
-                    <ul class="project-bullets">
-                        <li>
-                            Iterated sensor performance, timing discipline, and
-                            launch diagnostics across hardware and firmware.
-                        </li>
-                        <li>
-                            Coordinated avionics, recovery, and airbrakes teams
-                            to align deployment and mission objectives.
-                        </li>
-                        <li>
-                            Expanded firmware test coverage (timing checks,
-                            sensor sanity, on-pad diagnostics) to reduce risk.
-                        </li>
-                        <li>
-                            Applied filtering and state estimation (EWRA/EKF) to
-                            improve embedded data quality feeding PID loops.
-                        </li>
-                    </ul>
+                    <div data-md>
+Designed hardware, firmware, and control logic enabling automatic in-flight aero-braking to hit target altitude for Space Raiders IREC 2025.
+
+- Iterated sensor performance, timing discipline, and launch diagnostics across hardware and firmware.
+- Coordinated avionics, recovery, and airbrakes teams to align deployment and mission objectives.
+- Expanded firmware test coverage (timing checks, sensor sanity, on-pad diagnostics) to reduce risk.
+- Applied filtering and state estimation (EWRA/EKF) to improve embedded data quality feeding PID loops.
+                    </div>
                 </div>
             </section>
 
@@ -71,29 +64,21 @@
                         src="images/horizon-tracking/cover.png"
                         alt="Horizon Tracking Groundstation cover"
                     />
+                    <img
+                        src="images/horizon-tracking/cad.png"
+                        alt="Horizon Tracking CAD render"
+                    />
                 </div>
                 <div class="project-content">
                     <p class="eyebrow">Space Raiders • Aug 2025 – Present</p>
                     <h2>Horizon Tracking Groundstation</h2>
-                    <p>
-                        Building a Raspberry Pi 5 groundstation with telemetry
-                        dashboard, 3D trajectory mapping, and automated antenna
-                        tracking for redundant downlink.
-                    </p>
-                    <ul class="project-bullets">
-                        <li>
-                            Multi-link RF architecture for redundant telemetry
-                            and video reception.
-                        </li>
-                        <li>
-                            GPS/inertial dead-reckoning between telemetry
-                            packets for smoother pointing.
-                        </li>
-                        <li>
-                            Prototyping pan-tilt actuation with embedded control
-                            loops and a web UI.
-                        </li>
-                    </ul>
+                    <div data-md>
+Building a Raspberry Pi 5 groundstation with telemetry dashboard, 3D trajectory mapping, and automated antenna tracking for redundant downlink.
+
+- Multi-link RF architecture for redundant telemetry and video reception.
+- GPS/inertial dead-reckoning between telemetry packets for smoother pointing.
+- Prototyping pan-tilt actuation with embedded control loops and a web UI.
+                    </div>
                 </div>
             </section>
 
@@ -103,29 +88,40 @@
                         src="images/apex/cover.png"
                         alt="Apex Flight Computer cover"
                     />
+                    <img
+                        src="images/apex/photos/bare.png"
+                        alt="Apex Flight Computer bare board"
+                    />
+                    <img
+                        src="images/apex/photos/L1.png"
+                        alt="Apex Flight Computer image L1"
+                    />
+                    <img
+                        src="images/apex/photos/L2.png"
+                        alt="Apex Flight Computer image L2"
+                    />
                 </div>
                 <div class="project-content">
                     <p class="eyebrow">Space Raiders • Aug 2025 – Present</p>
                     <h2>APEX Flight Computer</h2>
-                    <p>
-                        ESP32-S3 flight computer PCB and firmware with FreeRTOS,
-                        dual-core task separation, and EKF-based sensor fusion
-                        for Space Raiders IREC 2025.
-                    </p>
-                    <ul class="project-bullets">
-                        <li>
-                            Redundant sensor suites and stackup tuned for signal
-                            integrity; board bring-up and validation.
-                        </li>
-                        <li>
-                            Real-time PID control loops using simulation-driven
-                            parameters to support airbrake actuation.
-                        </li>
-                        <li>
-                            FreeRTOS scheduling, dual-core partitioning, and
-                            telemetry integration for flight logging.
-                        </li>
-                    </ul>
+                    <div data-md>
+The APEX flight computer is a custom ESP32-S3 based embedded system designed to provide robust flight control and telemetry capabilities for high-altitude rocketry applications.
+
+The primary goal of APEX is to operate the Airbrakes system, enabling precise altitude control during descent through real-time adjustments based on sensor data using a PID loop.
+
+![APEX Block Diagram](images/apex/photos/block-diagram.png)
+
+- Key Features:
+    - Redundant sensor suites and stackup tuned for signal integrity; board bring-up and validation.
+    - Real-time PID control loops using simulation-driven parameters to support airbrake actuation.
+    - FreeRTOS scheduling, dual-core partitioning, and telemetry integration for flight logging.
+- Sensors:
+    - Barometer
+    - Accelerometer
+    - Magnetometer
+    - 6-DoF IMU
+    - GPS
+                    </div>
                 </div>
             </section>
 
@@ -139,29 +135,24 @@
                 <div class="project-content">
                     <p class="eyebrow">iOS Developer • Aug 2023 – May 2024</p>
                     <h2>ConnectEDU</h2>
-                    <p>
-                        iOS app built with a cross-platform team to connect
-                        students and mentors with curated paths and lightweight
-                        progress tracking.
-                    </p>
-                    <ul class="project-bullets">
-                        <li>
-                            Designed and implemented core app architecture and
-                            data flows in SwiftUI for modularity.
-                        </li>
-                        <li>
-                            Coordinated with Android/backend teams and used
-                            milestone-driven execution.
-                        </li>
-                        <li>
-                            Applied project management practices (idea proposals,
-                            Gantt planning, milestones).
-                        </li>
-                    </ul>
+                    <div data-md>
+iOS app built with a cross-platform team to connect students and mentors with curated paths and lightweight progress tracking.
+
+- Designed and implemented core app architecture and data flows in SwiftUI for modularity.
+- Coordinated with Android/backend teams and used milestone-driven execution.
+- Applied project management practices (idea proposals, Gantt planning, milestones).
+                    </div>
                 </div>
             </section>
         </main>
 
         <footer>&copy; 2025 Logan Rohlfs</footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script>
+            document.querySelectorAll("[data-md]").forEach((el) => {
+                el.innerHTML = marked.parse(el.textContent);
+            });
+        </script>
     </body>
 </html>

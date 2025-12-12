@@ -301,37 +301,13 @@
                 <h2>About Me</h2>
                 <div class="about-grid">
                     <div class="about-copy">
-                        <p>
-                            I am Logan Rohlfs, a Computer Engineering student at
-                            Texas Tech University with a passion for building
-                            systems that bridge software, hardware, and real
-                            world performance. I enjoy figuring out how things
-                            work and then improving them, especially when it
-                            comes to embedded systems, real time control, and
-                            communication systems.
-                        </p>
-                        <p>
-                            My interests started with software in high school,
-                            and over time I began to appreciate the physical
-                            side of engineering. That shift led me to hands-on
-                            projects like custom flight computer boards, live
-                            telemetry systems, and embedded firmware for real
-                            time control. Working with the Raider Aerospace
-                            Society has pushed me to grow not only technically
-                            but also as a collaborator and leader. I like
-                            tackling problems that require both planning and
-                            experimentation, and I get a lot of satisfaction out
-                            of seeing my work operate in the real world.
-                        </p>
-                        <p>
-                            Outside of structured projects, I am constantly
-                            learning new tools and approaches, whether that is
-                            improving my Linux workflows, exploring networking
-                            concepts, or helping teammates pick up skills like
-                            Git and PCB fundamentals. I enjoy engineering that
-                            works across software and hardware domains, and I am
-                            always excited to take on new challenges.
-                        </p>
+                        <div data-md>
+I am Logan Rohlfs, a Computer Engineering student at Texas Tech University with a passion for building systems that bridge software, hardware, and real world performance. I enjoy figuring out how things work and then improving them, especially when it comes to embedded systems, real time control, and communication systems.
+
+My interests started with software in high school, and over time I began to appreciate the physical side of engineering. That shift led me to hands-on projects like custom flight computer boards, live telemetry systems, and embedded firmware for real time control. Working with the Raider Aerospace Society has pushed me to grow not only technically but also as a collaborator and leader. I like tackling problems that require both planning and experimentation, and I get a lot of satisfaction out of seeing my work operate in the real world.
+
+Outside of structured projects, I am constantly learning new tools and approaches, whether that is improving my Linux workflows, exploring networking concepts, or helping teammates pick up skills like Git and PCB fundamentals. I enjoy engineering that works across software and hardware domains, and I am always excited to take on new challenges.
+                        </div>
                     </div>
                     <div class="about-highlights">
                         <div class="pill">
@@ -517,7 +493,12 @@
 
         <footer>&copy; 2025 Logan Rohlfs</footer>
 
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script>
+            document.querySelectorAll("[data-md]").forEach((el) => {
+                el.innerHTML = marked.parse(el.textContent);
+            });
+
             document.querySelectorAll(".experience-grid").forEach((grid) => {
                 const experienceCards =
                     grid.querySelectorAll(".experience-card");
