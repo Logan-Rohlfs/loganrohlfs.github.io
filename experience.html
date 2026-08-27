@@ -13,42 +13,90 @@
                     <p class="eyebrow">Portfolio</p>
                     <h1>Experience</h1>
                     <p class="lede">
-                        Roles that sharpened my embedded, RF, and systems
-                        engineering skills.
+                        Industry and leadership roles that sharpened my
+                        embedded, RF, and systems engineering skills.
                     </p>
                 </div>
                 <nav class="page-nav">
                     <a class="btn" href="index.html">Home</a>
                     <a class="btn" href="projects.html">Projects</a>
+                    <a class="btn" href="#firefly">Firefly</a>
+                    <a class="btn" href="#avionics">Avionics Lead</a>
                 </nav>
             </div>
         </header>
 
         <main class="page-main">
+            <section class="project-section role-section" id="firefly">
+                <div class="project-media">
+                    <button type="button" class="gallery-item" data-caption="Firefly Alpha vertical on the pad.">
+                        <img src="images/firefly/alpha.jpg" alt="Firefly Alpha launch vehicle vertical on the pad" loading="lazy" />
+                    </button>
+                </div>
+                <div class="project-content">
+                    <p class="eyebrow">Firefly Aerospace • May 2026 – Aug 2026</p>
+                    <h2>Launch Vehicle Flight Software Intern</h2>
+                    <div class="status-row">
+                        <span class="status-chip is-archived">Completed</span>
+                    </div>
+                    <div data-md>
+**Industry Experience | Flight Software, Test Infrastructure, and Tooling**
+
+I spent the summer of 2026 on the launch vehicle flight software team at
+Firefly Aerospace in Cedar Park, Texas. The work sat at the seam between
+flight software and the hardware it runs on: test infrastructure,
+configuration tooling, and the build systems that move code from a commit to
+something that can be trusted on a vehicle.
+
+**Contributions included:**
+- Supported advanced hardware-in-the-loop testing for a major revision of flight software systems
+- Worked across Avionics, Firmware, and Electrical Engineering to facilitate creation of a universal vehicle configuration tool
+- Integrated CI/CD pipelines supporting unit testing, cross-compilation, and package deployment
+
+The through-line with my Space Raiders work was verification. Both come down
+to the same question: how do you know the software is right before it flies?
+Seeing how that question is answered at production scale directly shaped how
+I structure testing and integration on APEX.
+                    </div>
+                </div>
+            </section>
+
             <section class="project-section role-section" id="avionics">
                 <div class="project-media">
-                    <img
-                        src="images/avionics-team-lead/cover.png"
-                        alt="Avionics Team Lead cover"
-                    />
-                    <img
-                        src="images/avionics-team-lead/photos/avbay.jpg"
-                        alt="Avionics bay"
-                    />
-                    <img
-                        src="images/avionics-team-lead/photos/rail.jpg"
-                        alt="Rail setup"
-                    />
-                    <img
-                        src="images/airbrakes/photos/raiderx-flight.jpg"
-                        alt="RaiderX flight test"
-                    />
+                    <button type="button" class="gallery-item" data-caption="Preliminary Design Review: presenting avionics designs to alumni, faculty, and external reviewers.">
+                        <img src="images/avionics-team-lead/cover.jpg" alt="Avionics team preliminary design review" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="Avionics bay integration.">
+                        <img src="images/avionics-team-lead/photos/avbay.jpg" alt="Avionics bay integration" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="On the rail during a flight campaign.">
+                        <img src="images/avionics-team-lead/photos/rail.jpg" alt="Vehicle on the rail" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="RaiderX in flight, IREC 2025.">
+                        <img src="images/airbrakes/photos/raiderx-flight.jpg" alt="RaiderX in flight at IREC 2025" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="Avionics pad operations on West Texas Sunset at IREC 2026.">
+                        <img src="images/west-texas-sunset/photos/pad-ops.jpg" alt="Pad operations on West Texas Sunset" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="With West Texas Sunset vertical on the rail at IREC 2026.">
+                        <img src="images/west-texas-sunset/photos/rail.jpg" alt="With West Texas Sunset on the rail" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="West Texas Sunset on pad D1 ahead of the competition flight.">
+                        <img src="images/west-texas-sunset/photos/pad.jpg" alt="West Texas Sunset on pad D1" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="The Space Raiders team with West Texas Sunset at IREC 2026.">
+                        <img src="images/west-texas-sunset/photos/team.jpg" alt="Space Raiders team at IREC 2026" loading="lazy" />
+                    </button>
                 </div>
                 <div class="project-content">
                     <p class="eyebrow">
                         Raider Aerospace Society • Mar 2025 – Present
                     </p>
                     <h2>Avionics Team Lead</h2>
+                    <div class="status-row">
+                        <span class="status-chip is-active">Current role</span>
+                        <span class="status-chip is-flown">IREC 2026: 1st, 10k SRAD</span>
+                    </div>
                     <div data-md>
 ### Avionics Development and Acting Lead  
 #### August 2024 - June 2025 | IREC 2025
@@ -81,20 +129,48 @@ Over the summer, I led general planning efforts to define system architecture, d
 - Guiding subsystem design through structured reviews and documentation
 - Preparing avionics designs and justifications for formal design reviews and future flight campaigns
 
+### IREC 2026 Competition Results
+#### June 2026
+
+West Texas Sunset flew at IREC 2026 with the first fully custom avionics
+stack Space Raiders has ever fielded: the APEX flight computer, the HORIZON
+groundstation, and an active airbrakes system, with commercial electronics
+limited to recovery. The vehicle reached an apogee of 10,004 feet against a
+10,000 foot target, took **first place in the 10,000 ft SRAD category**, and
+finished **10th overall**.
+
+I ran avionics through the campaign: integration, functional verification
+across subteams, competition documentation, and avionics operations on the
+pad through launch.
+
+**What the campaign delivered:**
+- Deployed Space Raiders' first custom flight computer with working live telemetry and dynamic controls
+- Led integrated hardware and firmware development through competition launch, ensuring cross-domain functional verification
+- Led cross-team integration for parachute deployment and aerodynamic braking, aligning both with the mission profile
+- Consolidated avionics documentation for competition: block diagrams, wiring schematics, and design justifications
+- Directly managed interdisciplinary efforts of 15+ students across mechanical, electrical, and software
+
+**What did not go to plan.** The velocity estimator feeding the airbrakes
+control loop was improperly tuned and oscillated in flight, so the braking
+system actuated but did not behave as designed, and its contribution to the
+apogee result is not quantifiable. The 2.4 GHz video downlink was lost to an
+antenna damaged during integration, and HORIZON's pan-tilt mechanism was not
+flight-active, so antennas were hand-tracked. Post-flight analysis of these
+three items is driving the current design cycle. Reporting them accurately
+matters more to me than the placement does.
+
                     </div>
                 </div>
             </section>
 
             <section class="project-section role-section" id="roboranch">
                 <div class="project-media">
-                    <img
-                        src="images/roboranch/cover.png"
-                        alt="RoboRanch competition cover"
-                    />
-                    <img
-                        src="images/roboranch/photos/trophies.png"
-                        alt="RoboRanch trophies"
-                    />
+                    <button type="button" class="gallery-item" data-caption="GEAR RoboRanch robotics competition at Texas Tech.">
+                        <img src="images/roboranch/cover.jpg" alt="GEAR RoboRanch competition" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="Competition awards.">
+                        <img src="images/roboranch/photos/trophies.jpg" alt="RoboRanch trophies" loading="lazy" />
+                    </button>
                 </div>
                 <div class="project-content">
                     <p class="eyebrow">TTU Volunteer • Spring 2025</p>
@@ -116,14 +192,12 @@ Volunteered as a table referee for the GEAR Robotics RoboRanch competition, a LE
 
             <section class="project-section role-section" id="lupe-tortilla">
                 <div class="project-media">
-                    <img
-                        src="images/lupe-tortilla/cover.png"
-                        alt="Lupe Tortilla cover"
-                    />
-                    <img
-                        src="images/lupe-tortilla/photos/Catering.jpg"
-                        alt="Lupe Tortilla catering"
-                    />
+                    <button type="button" class="gallery-item" data-caption="Lupe Tortilla.">
+                        <img src="images/lupe-tortilla/cover.jpg" alt="Lupe Tortilla" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="Catering order preparation.">
+                        <img src="images/lupe-tortilla/photos/Catering.jpg" alt="Catering order preparation" loading="lazy" />
+                    </button>
                 </div>
                 <div class="project-content">
                     <p class="eyebrow">Hospitality • Mar 2023 – Present</p>
@@ -145,7 +219,7 @@ Worked in a high-volume restaurant environment supporting take-out and large cat
             </section>
         </main>
 
-        <footer>&copy; 2025 Logan Rohlfs</footer>
+        <footer>&copy; 2026 Logan Rohlfs</footer>
 
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script>
@@ -153,5 +227,6 @@ Worked in a high-volume restaurant environment supporting take-out and large cat
                 el.innerHTML = marked.parse(el.textContent);
             });
         </script>
+        <script src="scripts/gallery.js"></script>
     </body>
 </html>

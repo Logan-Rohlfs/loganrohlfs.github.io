@@ -13,152 +13,417 @@
                     <p class="eyebrow">Portfolio</p>
                     <h1>Projects</h1>
                     <p class="lede">
-                        A collection of embedded, controls, and telemetry builds
-                        with a focus on reliable testable firmware and hardware
-                        that ships.
+                        Embedded, controls, and telemetry builds, including the
+                        flight computer and groundstation that flew West Texas
+                        Sunset to a first-place finish at IREC 2026.
                     </p>
                 </div>
                 <nav class="page-nav">
                     <a class="btn" href="index.html">Home</a>
+                    <a class="btn" href="#west-texas-sunset">West Texas Sunset</a>
+                    <a class="btn" href="#apex">APEX FC</a>
+                    <a class="btn" href="#horizon-tracking">HORIZON</a>
                     <a class="btn" href="#airbrakes">Airbrakes</a>
-                    <a class="btn" href="#horizon-tracking">Groundstation</a>
-                    <a class="btn" href="#apex">Apex FC</a>
                     <a class="btn" href="#connectedu">ConnectEDU</a>
                 </nav>
             </div>
         </header>
 
         <main class="page-main">
-            <section class="project-section" id="horizon-tracking">
+            <section class="project-section" id="west-texas-sunset">
                 <div class="project-media">
-                    <div class="project-image-wrapper">
-                        <img
-                            src="images/horizon-tracking/cover.png"
-                            alt="Horizon Tracking Groundstation cover"
-                        />
-                    </div>
-                    <div class="project-image-wrapper">
-                        <img
-                            src="images/horizon-tracking/cad.png"
-                            alt="Horizon Tracking CAD render"
-                        />
-                        <span class="project-image-note">*conceptual</span>
-                    </div>
-                    <div class="project-image-wrapper">
-                        <img
-                            src="images/horizon-tracking/tracking-inspiration.jpg"
-                            alt="Horizon Tracking inspiration"
-                        />
-                        <span class="project-image-note">*inspiration</span>
-                    </div>
+                    <button type="button" class="gallery-item" data-caption="West Texas Sunset, finished and painted, beside the Masked Rider statue at Texas Tech.">
+                        <img src="images/west-texas-sunset/cover.jpg" alt="West Texas Sunset at dusk beside the Texas Tech Masked Rider statue" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="On pad D1 at IREC 2026, vertical and waiting on the launch window.">
+                        <img src="images/west-texas-sunset/photos/pad.jpg" alt="West Texas Sunset on pad D1 at IREC 2026" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="Under power. Apogee came in at 10,004 ft against a 10,000 ft target.">
+                        <img src="images/west-texas-sunset/photos/flight.jpg" alt="West Texas Sunset under power after liftoff" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="Pad operations: arming and final avionics checks before launch.">
+                        <img src="images/west-texas-sunset/photos/pad-ops.jpg" alt="Pad operations on West Texas Sunset before launch" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="The vehicle vertical on the rail at Spaceport America.">
+                        <img src="images/west-texas-sunset/photos/rail.jpg" alt="West Texas Sunset vertical on the rail before flight" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="The Texas Tech Space Raiders team with West Texas Sunset at IREC 2026.">
+                        <img src="images/west-texas-sunset/photos/team.jpg" alt="Texas Tech Space Raiders team with West Texas Sunset at IREC 2026" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="Pre-competition test flight.">
+                        <img src="images/west-texas-sunset/photos/test-flight.jpg" alt="Pre-competition test flight" loading="lazy" />
+                        <span class="project-image-note">*test flight</span>
+                    </button>
                 </div>
                 <div class="project-content">
-                    <p class="eyebrow">Space Raiders • Aug 2025 – Present</p>
-                    <h2>Horizon Tracking Groundstation</h2>
-                    <div data-md> 
-**Current Project | Ground Systems, Communications, and Visualization**
+                    <p class="eyebrow">Space Raiders • IREC 2026 • June 2026</p>
+                    <h2>West Texas Sunset</h2>
+                    <div class="status-row">
+                        <span class="status-chip is-flown">Flown at IREC 2026</span>
+                        <span class="status-chip is-flown">1st in 10k SRAD</span>
+                    </div>
 
-HORIZON is a ground tracking and visualization system designed to receive, display, and operate on live telemetry and video throughout a rocket flight. The system is being developed to support both automated tracking and robust fallback operation, ensuring that telemetry and video can still be captured even if closed-loop tracking is unavailable during a flight.
+                    <div class="result-strip">
+                        <div class="result-tile is-hero">
+                            <span class="result-label">Apogee</span>
+                            <span class="result-value">10,004<span class="result-unit">ft</span></span>
+                            <span class="result-note"
+                                >4 ft over a 10,000 ft target</span
+                            >
+                        </div>
+                        <div class="result-tile">
+                            <span class="result-label">Apogee error</span>
+                            <span class="result-value">0.04%</span>
+                            <span class="result-note">against declared target</span>
+                        </div>
+                        <div class="result-tile">
+                            <span class="result-label">Category</span>
+                            <span class="result-value">1st</span>
+                            <span class="result-note">10,000 ft SRAD</span>
+                        </div>
+                        <div class="result-tile">
+                            <span class="result-label">Overall</span>
+                            <span class="result-value">10th</span>
+                            <span class="result-note">IREC 2026</span>
+                        </div>
+                    </div>
 
-At its core, the groundstation is built around a Raspberry Pi 5 running a locally hosted, web-based dashboard. This dashboard aggregates live telemetry, video, and positional data into a single interface that can be viewed on the station itself or remotely from connected devices such as laptops and tablets. Visualization includes live plotting, 3D trajectory mapping, and real-time orientation rendering using Three.js.
+                    <div data-md>
+**Competition Vehicle | Avionics Lead**
 
-The communication architecture emphasizes redundancy and separation of concerns across multiple RF links:
-- Omnidirectional 70 cm link for bootstrapping and tracking telemetry  
-- Directional 70 cm link for higher-bandwidth telemetry  
-- 2.4 GHz analog video downlink using a parabolic dish  
+West Texas Sunset was the Texas Tech Space Raiders entry in the 10,000 ft
+SRAD (Student Researched and Designed) category at IREC 2026. It was the
+first Space Raiders vehicle to fly a fully custom avionics stack: a
+student-designed flight computer, a student-built groundstation, and an
+active aerodynamic braking system. Commercial flight electronics were
+limited to recovery.
 
-These links allow the system to acquire initial position data, drive tracking behavior, and maintain independent telemetry and video paths.
+I led avionics for the campaign. That covered the APEX flight computer,
+the HORIZON groundstation, integration with recovery and airbrakes, and
+avionics operations on the pad.
 
-For tracking and pointing, the system fuses GPS and inertial data from both the rocket and groundstation to estimate relative position and orientation. Telemetry packets include timestamps to support dead-reckoning between updates, allowing the groundstation to predict rocket position during brief link dropouts and smooth antenna motion. Tracking software is currently being evaluated using ArduPilot-supported workflows, with the option to transition to custom control logic as testing progresses.
+The vehicle reached an apogee of 10,004 feet against a declared 10,000
+foot target, took first place in the 10k SRAD category, and finished
+10th overall.
 
-The mechanical tracking platform is designed around a surveying tripod base with a planned pan-tilt mechanism using 3D printed cycloidal drives and stepper motors. In parallel, a modular mounting approach is being developed to allow rapid transition between handheld and tripod-mounted operation, ensuring telemetry and video reception remains viable if automated tracking cannot be used.
+**Avionics contributions across the campaign:**
+- Owned the flight computer, groundstation, and airbrakes control chain end to end
+- Ran integration and functional verification across mechanical, electrical, and software subteams
+- Prepared avionics documentation for competition: block diagrams, wiring schematics, and design justifications
+- Ran avionics operations and troubleshooting on the pad through launch
+- Led post-flight data review and the resulting design corrections
+                    </div>
 
-Current progress includes:
-- Functional telemetry dashboard and visualization pipeline validated with simulated flight data  
-- Antenna and transceiver trade studies in progress  
-- Mechanical design of the pan-tilt system underway  
-- Ongoing integration planning between RF, software, and mechanical subsystems  
+                    <figure class="media-figure">
+                        <video
+                            class="project-video"
+                            controls
+                            playsinline
+                            preload="none"
+                            poster="images/west-texas-sunset/telemetry-poster.jpg"
+                            src="images/west-texas-sunset/telemetry.mp4"
+                        ></video>
+                        <figcaption>
+                            Live telemetry received on the HORIZON groundstation
+                            during the competition flight. The view carries the
+                            70&nbsp;cm downlink spectrum and waterfall, altitude,
+                            velocity, and attitude, with flight state and sensor
+                            health.
+                        </figcaption>
+                    </figure>
 
-
+                    <div class="callout">
+                        <h4>Post-flight assessment</h4>
+                        <ul>
+                            <li>
+                                <strong>Telemetry link performed as designed.</strong>
+                                The 70&nbsp;cm downlink held through the flight and
+                                delivered continuous flight state and sensor data to
+                                the groundstation.
+                            </li>
+                            <li>
+                                <strong>Airbrakes actuated in flight, but their
+                                contribution is not quantifiable.</strong>
+                                The velocity estimator was improperly tuned and
+                                oscillated, producing a zigzag estimate that drove
+                                the control loop inconsistently. Our best estimate is
+                                roughly 40 ft of apogee reduction, but the system did
+                                not behave as intended and the 4 ft apogee accuracy
+                                should not be credited to closed-loop control.
+                            </li>
+                            <li>
+                                <strong>The video downlink was lost before flight.</strong>
+                                The 2.4&nbsp;GHz video antenna was damaged during
+                                integration, so the groundstation was reconfigured to
+                                a data-only view in the field.
+                            </li>
+                            <li>
+                                <strong>Antenna tracking was manual.</strong>
+                                The HORIZON pan-tilt mechanism was not flight-active,
+                                so the crew hand-tracked the vehicle using the
+                                manual fallback the system was deliberately
+                                designed around.
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
             <section class="project-section" id="apex">
                 <div class="project-media">
-                    <img
-                        src="images/apex/cover.png"
-                        alt="Apex Flight Computer cover"
-                    />
-                    <img
-                        src="images/apex/photos/bare.png"
-                        alt="Apex Flight Computer bare board"
-                    />
-                    <img
-                        src="images/apex/photos/L1.png"
-                        alt="Apex Flight Computer image L1"
-                    />
-                    <img
-                        src="images/apex/photos/L2.png"
-                        alt="Apex Flight Computer image L2"
-                    />
+                    <button type="button" class="gallery-item" data-caption="The populated APEX REV1 board that flew on West Texas Sunset. Silkscreen reads APEX &middot; REV1 &middot; 04/26.">
+                        <img src="images/apex/photos/flight-board.jpg" alt="Populated APEX REV1 flight computer" loading="lazy" />
+                        <span class="project-image-note">*flight hardware</span>
+                    </button>
+                    <button type="button" class="gallery-item is-contain" data-caption="APEX system block diagram.">
+                        <img src="images/apex/photos/block-diagram.png" alt="APEX flight computer block diagram" loading="lazy" />
+                    </button>
                 </div>
                 <div class="project-content">
                     <p class="eyebrow">Space Raiders • Aug 2025 – Present</p>
                     <h2>APEX Flight Computer</h2>
+                    <div class="status-row">
+                        <span class="status-chip is-flown">REV1 flown at IREC 2026</span>
+                        <span class="status-chip is-active">Next revision in work</span>
+                    </div>
                     <div data-md>
-**Current Project | Embedded Systems, Controls, and Hardware Design**
+**Flown Hardware | Embedded Systems, Controls, and PCB Design**
 
-APEX is a custom ESP32-S3 based flight computer designed to support active airbrakes control and real-time telemetry for high-altitude rocketry. The system is being developed as a single, integrated avionics unit to balance capability, reliability, and cost while maintaining flexibility for future architectural changes.
+APEX is the custom flight computer I designed for Space Raiders, and the
+first student-designed flight computer the team has ever flown. It runs the active
+airbrakes control loop, performs onboard state estimation, and downlinks live
+telemetry to the HORIZON groundstation. It flew on West Texas Sunset at
+IREC 2026.
 
-The primary function of APEX is to operate the airbrakes system, enabling precise apogee targeting through closed-loop control. The flight computer ingests data from multiple onboard sensors, performs state estimation and filtering, and executes control logic in real time. In addition to control, APEX packages and transmits telemetry data to the groundstation for live monitoring and post-flight analysis.
+#### Development timeline
+                    </div>
 
-#### Flight Computer and Embedded Software
+                    <div class="timeline">
+                        <div class="timeline-item is-retired">
+                            <span class="timeline-date">Aug – Dec 2025</span>
+                            <span class="timeline-title"
+                                >Revision A: ESP32-S3, discarded</span
+                            >
+                            <p class="timeline-body">
+                                The first APEX layout was built around an
+                                <strong>ESP32-S3</strong>, chosen for its dual-core
+                                architecture and integrated wireless, with FreeRTOS
+                                splitting sensor fusion onto one core and control and
+                                telemetry onto the other. It was fully routed and DRC
+                                clean. It was never fabricated. No board of this
+                                design has ever physically existed. The layout was
+                                discarded and restarted rather than patched.
+                            </p>
+                            <div class="timeline-figures">
+                            <button type="button" class="gallery-item" data-caption="Revision A bare board render, a design that was never fabricated.">
+                                <img src="images/apex/photos/bare.png" alt="Revision A bare board render" loading="lazy" />
+                            </button>
+                            <button type="button" class="gallery-item" data-caption="Revision A, layer 1 routing.">
+                                <img src="images/apex/photos/L1.png" alt="Revision A layer 1 routing" loading="lazy" />
+                            </button>
+                            <button type="button" class="gallery-item" data-caption="Revision A, layer 2 routing.">
+                                <img src="images/apex/photos/L2.png" alt="Revision A layer 2 routing" loading="lazy" />
+                            </button>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">Jan – Mar 2026</span>
+                            <span class="timeline-title"
+                                >Redesign around a Teensy 4.1 (ARM Cortex-M7)</span
+                            >
+                            <p class="timeline-body">
+                                The driver for the restart was numerical. The
+                                Cortex-M7's hardware floating-point unit handles the
+                                matrix math in the Extended Kalman Filter far more
+                                robustly than the ESP32-S3 could, and the platform is
+                                built around a more engineering-focused toolchain.
+                                Moving to a single high-performance core also let me
+                                drop the RTOS in favor of a simpler, more
+                                deterministic interrupt-driven task structure. Sensor
+                                redundancy, power architecture, and the four-layer
+                                stackup were re-laid out from scratch around the new
+                                MCU.
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">April 2026</span>
+                            <span class="timeline-title"
+                                >REV1 fabricated and assembled</span
+                            >
+                            <p class="timeline-body">
+                                The redesign was the first APEX layout ever ordered,
+                                so it carries REV1 on the silkscreen. Boards were
+                                fabricated through JLCPCB PCBA with selective hand
+                                assembly for unsupported and bulky parts, then bench
+                                tested and integrated into West Texas Sunset.
+                            </p>
+                        </div>
+                        <div class="timeline-item is-flight">
+                            <span class="timeline-date">June 2026</span>
+                            <span class="timeline-title">Flown at IREC 2026</span>
+                            <p class="timeline-body">
+                                APEX ran the airbrakes control loop, logged to
+                                microSD, and downlinked live telemetry to HORIZON
+                                through the full flight. It was the first
+                                student-designed flight computer Space Raiders has
+                                ever flown.
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">Present</span>
+                            <span class="timeline-title">Next revision in work</span>
+                            <p class="timeline-body">
+                                The board, the telemetry path, and the control loop
+                                all ran through the flight. The weak link was tuning,
+                                not hardware: the velocity estimator oscillated in
+                                flight and drove the airbrakes inconsistently.
+                                Correcting that estimator is the primary objective of
+                                the next revision.
+                            </p>
+                        </div>
+                    </div>
 
-The control architecture is centered around a PID loop driven by fused sensor data. Initial control logic and state machines are implemented and currently being exercised using software-in-the-loop testing with simulated flight data generated from RocketPy. Final tuning will occur once vehicle geometry and aerodynamic parameters are finalized.
+                    <div data-md>
+#### Flight software
 
-Flight software is built on FreeRTOS to support concurrent execution and timing determinism. The ESP32-S3 dual-core architecture is used to separate high-rate sensor conditioning and fusion from control and telemetry tasks, allowing each to run without blocking or resource contention.
+The control architecture is a PID loop driven by fused sensor data, with
+parameters derived from RocketPy simulation and exercised in
+software-in-the-loop before flight.
 
-Key aspects of the flight computer design include:
-- Closed-loop airbrakes control using PID logic driven by fused sensor inputs  
-- Sensor fusion layer supporting state estimation and health monitoring across redundant sensors  
-- FreeRTOS-based task scheduling with dual-core partitioning for fusion and control workloads  
-- Telemetry generation and downlink of flight state and sensor data  
+- Closed-loop airbrakes control using PID logic driven by fused sensor inputs
+- Extended Kalman Filter for state estimation across redundant sensors
+- Interrupt-driven task structure for high-rate sensor conditioning and control
+- Telemetry generation and downlink of flight state and sensor data
+- Onboard logging to microSD for post-flight analysis
 
-The software maintains internal flight states for control purposes, including idle, boost, coast, deployment window, and apogee, while remaining independent of recovery system decision-making in accordance with IREC rules.
+The software maintains its own internal flight states for control purposes
+(idle, boost, coast, deployment window, and apogee) while remaining
+independent of recovery system decision-making in accordance with IREC rules.
 
-#### PCB Design and Hardware Architecture
+#### PCB design and hardware architecture
 
-The APEX hardware is implemented as a custom four-layer PCB designed for reliability in a high-vibration, electrically noisy flight environment. The board is fully routed, DRC clean, and in final design-for-manufacturing review prior to fabrication.
+APEX is a custom four-layer PCB designed for reliability in a high-vibration,
+electrically noisy flight environment. A signal-ground-ground-signal stackup
+improves return paths, reduces crosstalk, and lowers EMI sensitivity. No
+controlled-impedance routing was required, but the layout follows the
+practices that would support it if a future revision needs higher-speed
+interfaces.
 
-A signal-ground-ground-signal stackup was selected to improve return paths, reduce crosstalk, and minimize EMI sensitivity. While no controlled-impedance routing is currently required, the layout follows best practices to support future expansion and higher-speed interfaces.
+- Redundant physical sensor suites supporting fault detection and graceful degradation
+- Onboard GNSS and a dedicated telemetry radio on separate SMA-fed antennas
+- Magnetic arming switches for safe pad handling with the vehicle closed out
+- Onboard regulation accepting 1S to 3S Li-ion for flexible bench testing and integration
+- External UBEC support via vibration-resistant WAGO connectors for high-current servo loads
+- Design-for-assembly targeting JLCPCB PCBA, with selective hand assembly for unsupported or bulky parts
+                    </div>
+                </div>
+            </section>
 
-Hardware design considerations include:
-- Redundant physical sensor suites to support fault detection and graceful degradation  
-- Onboard regulation supporting 1S to 3S Li-ion input for flexible bench testing and integration  
-- External UBEC support via vibration-resistant WAGO connectors to accommodate high-current servo loads  
-- Design-for-assembly optimized for JLCPCB PCBA services, with selective hand assembly for unsupported or bulky components  
+            <section class="project-section" id="horizon-tracking">
+                <div class="project-media">
+                    <button type="button" class="gallery-item" data-caption="The HORIZON dashboard, showing telemetry, spectrum, and trajectory in one view.">
+                        <img src="images/horizon-tracking/cover.png" alt="HORIZON groundstation dashboard" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="CAD concept for the pan-tilt tracking platform.">
+                        <img src="images/horizon-tracking/cad.png" alt="HORIZON pan-tilt CAD render" loading="lazy" />
+                        <span class="project-image-note">*conceptual</span>
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="Reference hardware that informed the tracking mount design.">
+                        <img src="images/horizon-tracking/tracking-inspiration.jpg" alt="Tracking mount inspiration" loading="lazy" />
+                        <span class="project-image-note">*inspiration</span>
+                    </button>
+                </div>
+                <div class="project-content">
+                    <p class="eyebrow">Space Raiders • Aug 2025 – Present</p>
+                    <h2>HORIZON Tracking Groundstation</h2>
+                    <div class="status-row">
+                        <span class="status-chip is-flown"
+                            >Partially operational at IREC 2026</span
+                        >
+                        <span class="status-chip is-active">In development</span>
+                    </div>
+                    <div data-md>
+**Flown in Reduced Configuration | Ground Systems, Communications, and Visualization**
 
-The PCB has been designed to allow rapid iteration while maintaining a robust baseline suitable for flight testing. Assembly is planned using a combination of automated PCBA and targeted hand assembly to balance cost, reliability, and component availability.
+HORIZON is a ground tracking and visualization system that receives,
+displays, and operates on live telemetry and video throughout a rocket
+flight. It was designed around a hard assumption: automated tracking might
+not be available on launch day, and telemetry and video still have to be
+captured if it isn't. At IREC 2026 that assumption paid off.
 
+At its core, the groundstation is a Raspberry Pi 5 running a locally hosted,
+web-based dashboard. The dashboard aggregates live telemetry, video, and
+positional data into a single interface viewable on the station itself or
+remotely from laptops and tablets. Visualization includes live plotting,
+downlink spectrum and waterfall views, 3D trajectory mapping, and real-time
+orientation rendering using Three.js.
+
+The communication architecture separates concerns across multiple RF links:
+- Omnidirectional 70 cm link for bootstrapping and tracking telemetry
+- Directional 70 cm link for higher-bandwidth telemetry
+- 2.4 GHz analog video downlink using a parabolic dish
+
+For tracking and pointing, the system fuses GPS and inertial data from both
+the rocket and the groundstation to estimate relative position and
+orientation. Telemetry packets carry timestamps to support dead-reckoning
+between updates, letting the groundstation predict rocket position through
+brief link dropouts and smooth antenna motion.
+
+The mechanical tracking platform is designed around a surveying tripod base
+with a pan-tilt mechanism using 3D printed cycloidal drives and stepper
+motors. A modular mounting approach allows rapid transition between handheld
+and tripod-mounted operation so that reception stays viable if automated
+tracking cannot be used.
+
+#### IREC 2026 performance
+
+HORIZON flew in a reduced configuration and the results split cleanly along
+subsystem lines.
+
+**What worked:** the 70 cm telemetry link performed as designed. The
+groundstation held the downlink through the flight and delivered continuous
+flight state, sensor health, and trajectory data. The recording on the West
+Texas Sunset page is the live feed as it came in.
+
+**What did not:** the 2.4 GHz video antenna was damaged during integration,
+so there was no video downlink. The dashboard was reconfigured in the field
+to a data-only view, dropping the video panes and expanding the telemetry
+and spectrum displays.
+
+**Tracking was manual.** The pan-tilt mechanism was not flight-active, so the
+antennas were hand-tracked using the modular handheld mounting, the
+deliberate fallback path, exercised for real.
+
+#### Current work
+
+- Repairing and re-qualifying the 2.4 GHz video downlink
+- Bringing the pan-tilt mechanism to flight-active status
+- Evaluating tracking software using ArduPilot-supported workflows, with the option to move to custom control logic
+- Ongoing integration between RF, software, and mechanical subsystems
                     </div>
                 </div>
             </section>
 
             <section class="project-section" id="airbrakes">
                 <div class="project-media">
-                    <img
-                        src="images/airbrakes/cover.png"
-                        alt="Airbrakes Flight Controller cover"
-                    />
-                    <img
-                        src="images/airbrakes/photos/afc-crash.jpg"
-                        alt="Airbrakes crash photo"
-                    />
+                    <button type="button" class="gallery-item" data-caption="The perf-board airbrakes flight controller, the direct ancestor of APEX.">
+                        <img src="images/airbrakes/cover.jpg" alt="Airbrakes flight controller" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="RaiderX in flight carrying the airbrakes controller.">
+                        <img src="images/airbrakes/photos/raiderx-flight.jpg" alt="RaiderX in flight" loading="lazy" />
+                    </button>
+                    <button type="button" class="gallery-item" data-caption="Hardware recovered after the test flight anomaly that drove the rebuild.">
+                        <img src="images/airbrakes/photos/afc-crash.jpg" alt="Post-anomaly hardware" loading="lazy" />
+                        <span class="project-image-note">*anomaly</span>
+                    </button>
                 </div>
                 <div class="project-content">
                     <p class="eyebrow">Space Raiders • Aug 2024 – Jul 2025</p>
                     <h2>Airbrakes Flight Controller</h2>
+                    <div class="status-row">
+                        <span class="status-chip is-flown">Flown at IREC 2025</span>
+                        <span class="status-chip is-archived">Superseded by APEX</span>
+                    </div>
                     <div data-md>
 **Foundational Project | Embedded Controls and Avionics**
 
@@ -172,20 +437,26 @@ Key contributions included:
 - Coordinated with avionics, recovery, and airbrakes teams to align control behavior with mission constraints  
 - Applied early filtering and state estimation techniques to stabilize sensor data feeding PID control logic  
 
+This controller is the direct ancestor of APEX. Everything it proved out
+(the control approach, the state machine, the failure modes found the hard
+way) carried forward into the custom flight computer that flew at IREC 2026.
                     </div>
                 </div>
             </section>
 
+
             <section class="project-section" id="connectedu">
                 <div class="project-media">
-                    <img
-                        src="images/connectedu/cover.png"
-                        alt="ConnectEDU cover"
-                    />
+                    <button type="button" class="gallery-item is-contain" data-caption="ConnectEDU iOS app built in SwiftUI.">
+                        <img src="images/connectedu/cover.png" alt="ConnectEDU iOS app" loading="lazy" />
+                    </button>
                 </div>
                 <div class="project-content">
                     <p class="eyebrow">iOS Developer • Aug 2023 – May 2024</p>
                     <h2>ConnectEDU</h2>
+                    <div class="status-row">
+                        <span class="status-chip is-archived">Discontinued</span>
+                    </div>
                     <div data-md>
 **Software Project | Mobile Development and Team Coordination**
 
@@ -201,7 +472,7 @@ Key contributions included:
             </section>
         </main>
 
-        <footer>&copy; 2025 Logan Rohlfs</footer>
+        <footer>&copy; 2026 Logan Rohlfs</footer>
 
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script>
@@ -209,5 +480,6 @@ Key contributions included:
                 el.innerHTML = marked.parse(el.textContent);
             });
         </script>
+        <script src="scripts/gallery.js"></script>
     </body>
 </html>

@@ -43,7 +43,7 @@ html {
             rgba(0, 0, 0, 0.55),
             rgba(0, 0, 0, 0.7)
         ),
-        url("../images/star-bg.png");
+        url("../images/star-bg.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -219,7 +219,7 @@ section.project h2 {
             rgba(0, 0, 0, 0.55),
             rgba(0, 0, 0, 0.7)
         ),
-        url("../images/star-bg.png");
+        url("../images/star-bg.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -374,7 +374,8 @@ section.project h2 {
 
 .project-section {
     display: grid;
-    grid-template-columns: minmax(280px, 420px) 1fr;
+    grid-template-columns: minmax(280px, 400px) 1fr;
+    align-items: stretch;
     gap: 18px;
     background: var(--color-white);
     border-radius: var(--border-radius);
@@ -382,16 +383,11 @@ section.project h2 {
     overflow: hidden;
 }
 
+/* Legacy rule replaced by the gallery tile sizing below; tiles own their
+   own dimensions now so the media column can be balanced against the copy. */
 .project-section .project-media img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
     display: block;
     border-radius: var(--border-radius);
-    align-self: stretch;
-    position: relative;
-    max-height: 480px;
 }
 
 .project-content img {
@@ -400,6 +396,12 @@ section.project h2 {
     border-radius: 0;
     display: block;
     margin: 0 auto;
+}
+
+.page-nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
 }
 
 .project-image-note {
@@ -418,17 +420,140 @@ section.project h2 {
     width: 100%;
 }
 
+/* The media column is balanced against the copy beside it: a script picks
+   the column count so the gallery's natural height lands near the text
+   height, then the rows stretch to fill it exactly. No gap on either side. */
 .project-section .project-media {
-    min-height: 260px;
     background: #e8eff3;
     padding: var(--space-small);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(var(--gallery-cols, 2), minmax(0, 1fr));
+    grid-auto-rows: minmax(72px, 1fr);
+    align-self: stretch;
+    gap: 8px;
+    border-radius: var(--border-radius);
+    min-height: 220px;
+    overflow: hidden;
+}
+
+/* Gallery tiles: uniform crops so the media column stays compact
+   and never outgrows the copy beside it. */
+.gallery-item {
+    position: relative;
+    margin: 0;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
     border-radius: var(--border-radius);
     overflow: hidden;
+    background: #dbe5ea;
+    cursor: zoom-in;
+    border: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+}
+
+.project-section .project-media .gallery-item > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project-section .project-media .gallery-item.is-contain > img {
+    object-fit: contain;
+    background: var(--color-white);
+}
+
+.gallery-item:hover > img,
+.gallery-item:focus-visible > img {
+    transform: scale(1.05);
+}
+
+.gallery-item:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+/* Lightbox */
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(18, 14, 28, 0.96);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    gap: 12px;
+}
+
+.lightbox img {
+    max-width: min(1200px, 92vw);
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+    display: block;
+}
+
+.lightbox-caption {
+    color: #e9e3f6;
+    font-size: 0.9rem;
+    text-align: center;
+    max-width: 70ch;
+}
+
+.lightbox-counter {
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.lightbox-btn {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-btn:hover {
+    background: rgba(255, 255, 255, 0.24);
+}
+
+.lightbox-prev {
+    left: 3vw;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    right: 3vw;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-close {
+    top: 20px;
+    right: 3vw;
 }
 
 .project-content {
@@ -632,8 +757,7 @@ section.project h2 {
 }
 
 .card-section-header span::before {
-    content: "—";
-    margin-right: 6px;
+    content: "";
 }
 
 .card-section-header span {
@@ -872,4 +996,305 @@ footer {
     font-size: 0.9rem;
     border-top: 1px solid #ddd;
     background: #fff;
+}
+
+.hero-note {
+    margin: 8px auto 0;
+    max-width: 52ch;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: #d9cffa;
+    letter-spacing: 0.01em;
+}
+
+/* ---------------------------------------------------------------
+   Project status, flight results, media placeholders, callouts
+   --------------------------------------------------------------- */
+
+/* Status chip: always carries a text label, never state-by-color alone */
+.status-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-small);
+    align-items: center;
+}
+
+.status-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: var(--border-width) solid transparent;
+    white-space: nowrap;
+}
+
+.status-chip::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    flex: 0 0 auto;
+}
+
+.status-chip.is-flown {
+    color: #1d6b46;
+    background: #e4f4ec;
+    border-color: #b9e0cb;
+}
+
+.status-chip.is-active {
+    color: var(--color-primary);
+    background: #efeaf9;
+    border-color: var(--color-accent);
+}
+
+.status-chip.is-archived {
+    color: #5a5566;
+    background: #eeecf2;
+    border-color: #d8d4e0;
+}
+
+/* KPI row: headline flight numbers. Stat tiles, no plot, so no hover layer. */
+.result-strip {
+    display: grid;
+    grid-template-columns: 1.55fr minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 10px;
+    margin: 4px 0 2px;
+}
+
+.result-tile {
+    background: #f6f4fb;
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 12px 14px;
+}
+
+.result-tile.is-hero {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.result-label {
+    display: block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: #6b6478;
+    margin-bottom: 4px;
+}
+
+.result-tile.is-hero .result-label {
+    color: var(--color-accent);
+}
+
+.result-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 1.1rem + 1.4vw, 1.9rem);
+    line-height: 1.05;
+    font-weight: 700;
+    color: var(--color-text);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.result-unit {
+    font-size: 0.45em;
+    font-weight: 600;
+    margin-left: 0.18em;
+    letter-spacing: 0.02em;
+}
+
+.result-tile.is-hero .result-value {
+    font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3rem);
+    color: var(--color-white);
+}
+
+.result-note {
+    display: block;
+    font-size: 0.78rem;
+    color: #6b6478;
+    margin-top: 4px;
+}
+
+.result-tile.is-hero .result-note {
+    color: #ddd4f2;
+}
+
+/* Inline flight video */
+.project-video {
+    width: 100%;
+    display: block;
+    border-radius: var(--border-radius);
+    background: #101014;
+}
+
+.media-figure {
+    width: 100%;
+    margin: 0;
+}
+
+.media-figure figcaption {
+    font-size: 0.78rem;
+    color: #6b6478;
+    margin-top: 6px;
+    text-align: center;
+}
+
+/* Post-flight / lessons-learned callout */
+.callout {
+    border-left: 4px solid var(--color-secondary);
+    background: #f6f4fb;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 12px 16px;
+}
+
+.callout h4 {
+    margin: 0 0 6px 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--color-primary);
+}
+
+.callout p,
+.callout ul {
+    margin: 0;
+    font-size: 0.92rem;
+}
+
+.callout ul {
+    padding-left: 18px;
+}
+
+.callout li + li {
+    margin-top: 4px;
+}
+
+@media (max-width: 980px) {
+    .result-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .result-tile.is-hero {
+        grid-column: span 2;
+    }
+}
+
+
+@media (max-width: 860px) {
+    .project-section {
+        grid-template-columns: 1fr;
+    }
+
+    .project-section .project-media {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-auto-rows: 110px;
+        height: auto !important;
+        min-height: 0;
+    }
+}
+
+
+/* ---------------------------------------------------------------
+   Development timeline: design history within a project
+   --------------------------------------------------------------- */
+.timeline {
+    position: relative;
+    margin: 2px 0 0;
+    padding-left: 26px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    bottom: 10px;
+    width: 2px;
+    background: var(--color-accent);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 18px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    box-shadow: 0 0 0 3px var(--color-bg);
+}
+
+.timeline-item.is-flight::before {
+    background: #1d6b46;
+}
+
+.timeline-item.is-retired::before {
+    background: var(--color-white);
+    border: 2px solid #c3bcd4;
+}
+
+.timeline-date {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.timeline-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-text);
+    margin: 1px 0 3px;
+}
+
+.timeline-item.is-retired .timeline-title {
+    color: #6b6478;
+}
+
+.timeline-body {
+    margin: 0;
+    font-size: 0.92rem;
+}
+
+.timeline-figures {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 10px;
+    max-width: 330px;
+}
+
+.timeline-figures .gallery-item {
+    aspect-ratio: 1 / 1;
+    background: var(--color-white);
+    border: var(--border-width) solid var(--border-color);
+}
+
+.timeline-figures .gallery-item > img {
+    object-fit: contain;
+    padding: 3px;
 }
