@@ -1,0 +1,75 @@
+---
+import { navigation } from '../data/site';
+import Icon from './Icon.astro';
+const path = Astro.url.pathname === '/index.html' ? '/' : Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="/" aria-label="Logan Rohlfs home">
+      <span class="monogram">
+        LR<span></span>
+      </span>
+      <span>Logan Rohlfs</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      {navigation.map((item) => (
+        <a
+          href={item.href}
+          aria-current={path === item.href ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+    <div class="header-actions">
+      <a class="resume-nav" href="/resume.html">
+        Résumé <Icon name="arrow" />
+      </a>
+      <button
+        type="button"
+        class="icon-button theme-toggle"
+        aria-label="Switch to light theme"
+        title="Switch theme"
+        hidden
+      >
+        <Icon name="sun" class="sun-icon" />
+        <Icon name="moon" class="moon-icon" />
+      </button>
+      <button
+        type="button"
+        class="icon-button menu-toggle"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        hidden
+      >
+        <Icon name="menu" class="menu-icon" />
+        <Icon name="close" class="close-icon" />
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>
+    {navigation.map((item) => (
+      <a
+        href={item.href}
+        aria-current={path === item.href ? 'page' : undefined}
+      >
+        {item.label}
+        <Icon />
+      </a>
+    ))}
+    <a href="/resume.html">
+      Résumé
+      <Icon />
+    </a>
+  </nav>
+  <noscript>
+    <nav class="no-script-nav" aria-label="Navigation">
+      {navigation.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+      <a href="/resume.html">Résumé</a>
+    </nav>
+  </noscript>
+</header>

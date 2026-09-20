@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/site';
+---
+
+<Layout
+  title="Résumé"
+  description="View and download Logan Rohlfs’ résumé. Computer Engineering at Texas Tech, graduating Fall 2027; seeking internships and co-ops."
+>
+  <div class="container">
+    <header class="page-intro">
+      <p class="eyebrow">Qualifications / 04</p>
+      <h1>
+        Résumé<span class="accent">.</span>
+      </h1>
+      <p>
+        Computer Engineering at Texas Tech.
+        <br />
+        Seeking internships and co-ops · Graduating {site.graduation}.
+      </p>
+    </header>
+    <div class="resume-layout">
+      <aside class="resume-info">
+        <p>
+          Flight software, embedded controls, and custom avionics. A closer look
+          at my experience and technical background.
+        </p>
+        <a
+          class="button button-primary"
+          href="/resume.pdf"
+          download="Logan-Rohlfs-Resume.pdf"
+        >
+          Download PDF <Icon name="download" />
+        </a>
+        <a class="button" href="/resume.pdf" target="_blank" rel="noopener">
+          Open PDF <Icon />
+        </a>
+        <div class="resume-contact">
+          <p>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </p>
+          <p>
+            <a href={`tel:${site.phone}`}>(214) 901-8750</a>
+          </p>
+          <p>{site.location}</p>
+        </div>
+      </aside>
+      <div>
+        <p class="resume-hint">
+          If the preview is unavailable on your device, use Open PDF.
+        </p>
+        <object
+          class="resume-preview"
+          data="/resume.pdf#view=FitH"
+          type="application/pdf"
+          aria-label="Logan Rohlfs résumé PDF"
+        >
+          <div class="resume-fallback">
+            <p>Your browser cannot display this PDF inline.</p>
+            <a class="text-link" href="/resume.pdf">
+              Open résumé PDF <Icon />
+            </a>
+          </div>
+        </object>
+      </div>
+    </div>
+  </div>
+</Layout>

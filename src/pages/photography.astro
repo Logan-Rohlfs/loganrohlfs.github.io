@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Photo from '../components/Photo.astro';
+import { photography } from '../data/photography';
+---
+
+<Layout
+  title="Photography"
+  description="Photography by Logan Rohlfs. A selection from 3 Rivers Ranch and the Reese Center."
+>
+  <div class="container">
+    <header class="page-intro">
+      <p class="eyebrow">Outside the lab / 03</p>
+      <h1>
+        A different lens<span class="accent">.</span>
+      </h1>
+      <p>
+        A small collection of places, people, and moments. Select a photograph
+        for a closer look.
+      </p>
+    </header>
+    <div class="photography-grid" data-gallery>
+      {photography.map((media, index) => (
+        <Photo
+          media={media}
+          zoom
+          caption
+          priority={index === 0}
+          sizes="(max-width: 540px) 100vw, 50vw"
+        />
+      ))}
+    </div>
+  </div>
+</Layout>

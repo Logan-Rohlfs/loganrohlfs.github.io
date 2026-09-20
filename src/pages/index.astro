@@ -1,0 +1,298 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Photo from '../components/Photo.astro';
+import OrganizationLogo from '../components/OrganizationLogo.astro';
+import Icon from '../components/Icon.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ExperienceRow from '../components/ExperienceRow.astro';
+import { experience } from '../data/experience';
+import { projects } from '../data/projects';
+import { site, skills } from '../data/site';
+---
+
+<Layout home>
+  <section class="hero" aria-labelledby="hero-title">
+    <Photo
+      class="hero-photo"
+      media={{
+        src: 'west-texas-sunset/photos/pad-ops.jpg',
+        alt: 'Avionics pad operations on West Texas Sunset at IREC 2026',
+        caption: '',
+      }}
+      priority
+      sizes="100vw"
+    />
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Computer Engineering / Texas Tech</p>
+        <h1 id="hero-title">
+          Logan
+          <br />
+          Rohlfs<span>.</span>
+        </h1>
+        <p class="hero-description">
+          Flight software. Custom avionics.
+          <br />
+          Engineering from the bench to flight.
+        </p>
+        <div class="button-row">
+          <a class="button button-primary" href="#selected-work">
+            Explore my work <Icon name="down" />
+          </a>
+          <a class="text-link" href="/resume.html">
+            View résumé <Icon />
+          </a>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <div>
+          <div class="hero-availability">
+            <span class="availability-dot"></span>
+            {site.availability}
+          </div>
+          <p class="mono">
+            {site.degree} · Graduating {site.graduation}
+          </p>
+        </div>
+        <a class="scroll-cue" href="#selected-work">
+          Scroll to explore <Icon name="down" />
+        </a>
+        <div class="hero-caption">
+          <span class="mono">IN THE FIELD / IREC 2026</span>
+          <a href="/projects.html#west-texas-sunset">
+            West Texas Sunset · Pad operations ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container intro-strip">
+    <p>
+      I build the hardware and software that connect a vehicle to its mission.
+    </p>
+    <div class="intro-fact">
+      <strong>Avionics Team Lead</strong>
+      <span>Texas Tech Space Raiders</span>
+    </div>
+    <div class="intro-fact">
+      <strong>Flight Software Intern</strong>
+      <span>Firefly Aerospace · Summer 2026</span>
+    </div>
+  </div>
+  <section class="container section" id="selected-work">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">01 / Selected work</p>
+        <h2>Designed. Built. Flown.</h2>
+      </div>
+      <a class="text-link" href="/projects.html">
+        All projects <Icon />
+      </a>
+    </div>
+    <div class="project-grid">
+      {projects.slice(0, 3).map((entry, index) => (
+        <ProjectCard entry={entry} index={index} />
+      ))}
+    </div>
+    <p class="section-note">
+      <span class="availability-dot"></span>Flight hardware, ground systems, and
+      the lessons between revisions.
+    </p>
+  </section>
+  <section class="experience-overview">
+    <div class="container section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">02 / Experience</p>
+          <h2>
+            On the team.
+            <br />
+            Close to the hardware.
+          </h2>
+        </div>
+        <a class="text-link" href="/experience.html">
+          Experience & leadership <Icon />
+        </a>
+      </div>
+      <div class="experience-rows">
+        {experience.slice(0, 2).map((entry) => (
+          <ExperienceRow entry={entry} />
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="container section about-grid">
+    <div class="about-copy">
+      <p class="eyebrow">03 / Engineering approach</p>
+      <h2>
+        Hardware and software.
+        <br />
+        One system.
+      </h2>
+      <p>
+        I’m a Computer Engineering student at Texas Tech. My work spans custom
+        circuit boards, embedded control, RF telemetry, and the tools that make
+        them testable.
+      </p>
+      <p>
+        Leading Space Raiders avionics has taken me from a perf-board controller
+        to a flight-ready custom stack. At Firefly, I worked on flight-software
+        testing and build infrastructure. Both experiences shape how I design,
+        integrate, and verify a system.
+      </p>
+      <a class="text-link" href="/experience.html#avionics">
+        More about my work <Icon />
+      </a>
+    </div>
+    <div>
+      <div class="skills-list">
+        {skills.map((skill) => (
+          <div class="skill-group">
+            <h3>{skill.title}</h3>
+            <p>{skill.items}</p>
+          </div>
+        ))}
+      </div>
+      <div class="education-inline">
+        <OrganizationLogo organization="texasTech" />
+        <div>
+          <p class="eyebrow">Education</p>
+          <strong>{site.school}</strong>
+          <p>{site.degree}</p>
+          <span class="mono">Expected graduation · {site.graduation}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container" aria-labelledby="photography-title">
+    <div class="photo-teaser">
+      <Photo
+        media={{
+          src: 'photography/3-Rivers_Building.jpg',
+          alt: '3 Rivers Ranch homestead',
+          caption: '',
+        }}
+      />
+      <div class="photo-teaser-copy">
+        <p class="eyebrow">Outside the lab</p>
+        <h2 id="photography-title">A different lens.</h2>
+        <p>A few moments from behind the camera.</p>
+        <a class="text-link" href="/photography.html">
+          View photography <Icon />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="container section" id="contact">
+    <div class="contact-grid">
+      <div class="contact-copy">
+        <p class="eyebrow">04 / Get in touch</p>
+        <h2>
+          Let’s build
+          <br />
+          what comes next.
+        </h2>
+        <p>
+          I’m looking for internships and co-ops in embedded systems, avionics,
+          and flight software. Graduating {site.graduation}.
+        </p>
+        <a class="contact-email" href={`mailto:${site.email}`}>
+          {site.email}
+        </a>
+        <div class="contact-socials">
+          <a href={site.linkedin}>LinkedIn ↗</a>
+          <a href={site.github}>GitHub ↗</a>
+          <a href="/resume.pdf" download>
+            Download résumé ↓
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="form-note" style="margin-bottom:1rem">
+          Prefer a message? Prepare an email below.
+        </p>
+        <form
+          class="contact-form"
+          data-contact
+          action={`mailto:${site.email}`}
+          method="get"
+        >
+          <div class="form-row">
+            <label>
+              Your name
+              <input name="name" autocomplete="name" required maxlength="100" />
+            </label>
+            <label>
+              Your email
+              <input
+                type="email"
+                name="email"
+                autocomplete="email"
+                required
+                maxlength="200"
+              />
+            </label>
+          </div>
+          <label>
+            Message
+            <textarea
+              name="message"
+              rows="4"
+              required
+              maxlength="5000"
+              placeholder="Tell me a little about the opportunity…"
+            ></textarea>
+          </label>
+          <div class="button-row">
+            <button class="button button-primary" type="submit">
+              Open email draft <Icon />
+            </button>
+            <button class="text-link" type="button" data-copy-email>
+              Copy email address
+            </button>
+          </div>
+          <p class="form-note">
+            Opens your email app with a draft. You review and send it there.
+          </p>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+        <noscript>
+          <style>
+            .contact-form {
+              display: none;
+            }
+          </style>
+          <p>
+            Contact me directly at{' '}
+            <a href={`mailto:${site.email}`}>{site.email}</a>.
+          </p>
+        </noscript>
+      </div>
+    </div>
+  </section>
+</Layout>
+<script>
+  import { site } from '../data/site';
+  const form = document.querySelector<HTMLFormElement>('[data-contact]');
+  const status = document.querySelector<HTMLElement>('.form-status');
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const fields = new FormData(form);
+    const subject = `Portfolio enquiry from ${String(fields.get('name')).trim()}`;
+    const body = `${String(fields.get('message')).trim()}\n\nFrom: ${String(fields.get('name')).trim()}\nEmail: ${String(fields.get('email')).trim()}`;
+    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (status)
+      status.textContent =
+        'Email draft requested. If no app opened, copy the address and send your message directly.';
+  });
+  document
+    .querySelector('[data-copy-email]')
+    ?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(site.email);
+        if (status) status.textContent = 'Email address copied.';
+      } catch {
+        if (status) status.textContent = `Copy this address: ${site.email}`;
+      }
+    });
+</script>

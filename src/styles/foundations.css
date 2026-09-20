@@ -1,0 +1,255 @@
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure {
+    margin: 0;
+  }
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+  button,
+  a,
+  input,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    cursor: pointer;
+  }
+  img,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  button {
+    color: inherit;
+  }
+  svg {
+    flex-shrink: 0;
+  }
+  [hidden] {
+    display: none !important;
+  }
+}
+@layer tokens {
+  :root {
+    color-scheme: dark;
+    --bg: #101214;
+    --surface: #181b1e;
+    --raised: #202429;
+    --text: #f0f2f4;
+    --muted: #a9afb6;
+    --subtle: #818b94;
+    --line: #343a40;
+    --accent: #efa775;
+    --accent-ink: #1d1813;
+    --header: rgba(16, 18, 20, 0.93);
+    --image-bg: #15191c;
+    --font: 'Manrope Variable', Arial, sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --gutter: clamp(1.25rem, 4.5vw, 5rem);
+    --width: 1320px;
+    --radius: 8px;
+  }
+  :root[data-theme='light'] {
+    color-scheme: light;
+    --bg: #f5f6f7;
+    --surface: #fff;
+    --raised: #e9edf0;
+    --text: #182127;
+    --muted: #52616b;
+    --subtle: #5c6b75;
+    --line: #cdd5da;
+    --accent: #91471b;
+    --accent-ink: #fff;
+    --header: rgba(245, 246, 247, 0.94);
+    --image-bg: #e3e8ec;
+  }
+}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+  }
+  body {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  body.dialog-open {
+    overflow: hidden;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 5px;
+  }
+  a,
+  button {
+    touch-action: manipulation;
+  }
+  p {
+    color: var(--muted);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.15;
+    font-weight: 550;
+    letter-spacing: -0.045em;
+  }
+  h1 {
+    font-size: clamp(3rem, 6vw, 5.8rem);
+  }
+  h2 {
+    font-size: clamp(2rem, 4vw, 3.3rem);
+  }
+  h3 {
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+  }
+  a,
+  button {
+    transition:
+      color 0.2s,
+      background 0.2s,
+      border-color 0.2s,
+      transform 0.25s;
+  }
+  main {
+    min-height: 65vh;
+  }
+  button {
+    border: 0;
+    background: none;
+  }
+  .container {
+    width: min(calc(100% - var(--gutter) * 2), var(--width));
+    margin-inline: auto;
+  }
+  .section {
+    padding-block: clamp(4rem, 7.5vw, 7rem);
+  }
+  .mono,
+  .eyebrow {
+    font-family: var(--mono);
+    font-weight: 400;
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    line-height: 1.6;
+  }
+  .mono {
+    font-size: 0.8125rem;
+  }
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .section-heading .eyebrow {
+    margin-bottom: 0.75rem;
+  }
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.9375rem;
+    border-bottom: 1px solid var(--line);
+    padding-block: 0.65rem;
+  }
+  .text-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .text-link:hover svg {
+    transform: translateX(3px);
+  }
+  .button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    min-height: 48px;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .button:hover {
+    background: var(--raised);
+    border-color: var(--muted);
+  }
+  .button-primary {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent);
+  }
+  .button-primary:hover {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+  .skip-link {
+    position: fixed;
+    top: -100px;
+    left: 1rem;
+    z-index: 100;
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 1rem;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+@layer base {
+  .accent {
+    color: var(--accent);
+  }
+}

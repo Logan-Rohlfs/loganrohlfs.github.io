@@ -1,0 +1,155 @@
+@layer components {
+  .intro-strip {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+    padding-block: 2.25rem;
+    gap: 2.5rem;
+  }
+  .intro-strip p {
+    max-width: 470px;
+    font-size: 1.0625rem;
+  }
+  .intro-fact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .intro-fact strong {
+    font-size: 1.125rem;
+    font-weight: 550;
+  }
+  .intro-fact span {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.35rem;
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .project-card:hover {
+    border-color: var(--muted);
+    transform: translateY(-4px);
+  }
+  .card-image {
+    position: relative;
+    aspect-ratio: 4/3;
+    background: var(--image-bg);
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .card-image .photo {
+    height: 100%;
+  }
+  .card-brand {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    background:
+      radial-gradient(circle at 50% 45%, var(--raised), transparent 68%),
+      var(--image-bg);
+  }
+  .card-brand .organization-logo {
+    width: min(82%, 280px);
+    height: min(62%, 120px);
+  }
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--photo-position);
+    transform: scale(var(--photo-scale, 1));
+    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .card-image .photo-contain img {
+    object-fit: contain;
+    padding: 1.25rem;
+  }
+  .project-card:hover .card-image img {
+    transform: scale(calc(var(--photo-scale, 1) + 0.035));
+  }
+  .card-image .photo-horizontal img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    max-width: none;
+    height: 118%;
+    object-fit: contain;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .project-card:hover .card-image .photo-horizontal img {
+    transform: translate(-50%, -50%) rotate(90deg) scale(1.035);
+  }
+  .card-number {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: #101214ce;
+    color: #e5e8eb;
+    padding: 0.2rem 0.45rem;
+    border: 1px solid #65707880;
+    border-radius: 3px;
+  }
+  .card-arrow {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    background: #101214df;
+    color: #fff;
+    border: 1px solid #5d666c;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+  }
+  .card-copy {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .card-copy h3 {
+    margin: 0.6rem 0 0.85rem;
+    font-size: 1.5rem;
+  }
+  .card-copy > p:not(.eyebrow) {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1.75rem;
+    color: var(--muted);
+  }
+  .card-copy .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.065em;
+  }
+  .section-note {
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+}

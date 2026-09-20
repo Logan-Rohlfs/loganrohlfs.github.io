@@ -1,0 +1,17 @@
+---
+import { site } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="/" class="footer-name">
+      Logan Rohlfs<span>Computer Engineering · Texas Tech</span>
+    </a>
+    <div class="footer-links">
+      <a href={site.github}>GitHub ↗</a>
+      <a href={site.linkedin}>LinkedIn ↗</a>
+      <a href={`mailto:${site.email}`}>Email ↗</a>
+    </div>
+    <span class="footer-year mono">© {new Date().getFullYear()}</span>
+  </div>
+</footer>

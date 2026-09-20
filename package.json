@@ -1,0 +1,30 @@
+{
+  "name": "logan-rohlfs-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "astro check",
+    "verify": "python3 scripts/verify-build.py",
+    "format": "prettier --write src scripts astro.config.mjs tsconfig.json .github README.md docs",
+    "format:check": "prettier --check src scripts astro.config.mjs tsconfig.json .github README.md docs",
+    "postbuild": "python3 scripts/finalize-build.py"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/manrope": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "astro": "^7.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/node": "^26.6.2",
+    "prettier": "^3.9.8",
+    "prettier-plugin-astro": "^1.0.1",
+    "typescript": "^6.0.3"
+  }
+}

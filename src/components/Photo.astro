@@ -1,0 +1,84 @@
+---
+import { Image, getImage } from 'astro:assets';
+import { getSource } from '../lib/images';
+import Icon from './Icon.astro';
+import type { Media } from '../data/types';
+interface Props {
+  media: Media;
+  class?: string;
+  priority?: boolean;
+  zoom?: boolean;
+  caption?: boolean;
+  sizes?: string;
+}
+const {
+  media,
+  class: className,
+  priority = false,
+  zoom = false,
+  caption = false,
+  sizes = '(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 600px',
+} = Astro.props;
+const source = getSource(media.src);
+const ratio = source.width / source.height;
+const orientation =
+  ratio < 0.97 ? 'portrait' : ratio > 1.25 ? 'landscape' : 'square';
+const widths = [
+  ...new Set(
+    [400, 720, 1100, 1600]
+      .filter((w) => w < source.width)
+      .concat(Math.min(source.width, 1600)),
+  ),
+];
+const imageProps = {
+  src: source,
+  alt: media.alt,
+  widths,
+  sizes,
+  format: 'webp' as const,
+  quality: 82,
+  loading: priority ? ('eager' as const) : ('lazy' as const),
+  decoding: 'async' as const,
+  fetchpriority: priority ? ('high' as const) : undefined,
+};
+const full = zoom
+  ? await getImage({
+      src: source,
+      width: Math.min(source.width, 2000),
+      format: 'webp',
+      quality: 90,
+    })
+  : null;
+---
+
+<figure
+  class:list={[
+    'photo',
+    className,
+    `photo-${orientation}`,
+    {
+      'photo-contain': media.fit === 'contain',
+      'photo-wide': media.layout === 'wide',
+      'photo-horizontal': media.presentation === 'horizontal',
+    },
+  ]}
+  style={`--photo-position: ${media.position || '50% 50%'}; --photo-scale: ${media.scale ?? 1}`}
+>
+  {zoom ? (
+    <a
+      class="photo-link"
+      href={full!.src}
+      data-lightbox
+      data-caption={media.caption}
+      aria-label={`Enlarge: ${media.alt}`}
+    >
+      <Image {...imageProps} />
+      <span class="zoom-icon">
+        <Icon name="expand" />
+      </span>
+    </a>
+  ) : (
+    <Image {...imageProps} />
+  )}
+  {caption && <figcaption>{media.caption}</figcaption>}
+</figure>

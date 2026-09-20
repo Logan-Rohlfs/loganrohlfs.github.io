@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import SectionIndex from '../components/SectionIndex.astro';
+import CaseStudy from '../components/CaseStudy.astro';
+import ContactLink from '../components/ContactLink.astro';
+import { projects } from '../data/projects';
+---
+
+<Layout
+  title="Projects"
+  description="Custom flight computers, telemetry, and controls by Logan Rohlfs. Explore the design, integration, and flight lessons behind Space Raiders avionics."
+>
+  <div class="container">
+    <header class="page-intro">
+      <p class="eyebrow">Engineering portfolio / 01</p>
+      <h1>
+        Projects & systems<span class="accent">.</span>
+      </h1>
+      <p>
+        From the first perf-board controller to a custom avionics stack. The
+        hardware, decisions, and flight results behind each build.
+      </p>
+    </header>
+    <section class="project-index" aria-label="Project overview">
+      <div class="project-grid">
+        {projects.map((entry, index) => (
+          <ProjectCard entry={entry} index={index} local />
+        ))}
+      </div>
+    </section>
+    <div class="detail-layout">
+      <SectionIndex entries={projects} />
+      <div>
+        {projects.map((entry, index) => (
+          <CaseStudy entry={entry} index={index} />
+        ))}
+      </div>
+    </div>
+  </div>
+  <ContactLink />
+</Layout>

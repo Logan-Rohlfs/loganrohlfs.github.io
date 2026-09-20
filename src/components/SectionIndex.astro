@@ -1,0 +1,20 @@
+---
+import type { Entry } from '../data/types';
+interface Props {
+  entries: Entry[];
+}
+const { entries } = Astro.props;
+---
+
+<nav class="section-index" aria-label="On this page">
+  <p class="eyebrow">On this page</p>
+  {entries.map((entry, index) => (
+    <a data-section-link href={`#${entry.id}`}>
+      <span>{String(index + 1).padStart(2, '0')}</span>
+      {entry.shortTitle}
+    </a>
+  ))}
+  <a class="index-top" href="#main">
+    ↑ Back to overview
+  </a>
+</nav>

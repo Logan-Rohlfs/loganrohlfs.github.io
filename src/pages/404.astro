@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout title="Page not found">
+  <section class="container section">
+    <p class="eyebrow">404 / Page not found</p>
+    <h1 style="margin-block:1.5rem">
+      Let’s get you
+      <br />
+      back on course.
+    </h1>
+    <p style="margin-bottom:2rem">
+      This page may have moved. My projects and experience are a good place to
+      start.
+    </p>
+    <div class="button-row">
+      <a href="/" class="button button-primary">
+        Back home <Icon />
+      </a>
+      <a href="/projects.html" class="button">
+        Explore projects <Icon />
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,40 @@
+@layer components {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .project-card,
+      .photo-teaser {
+        animation: reveal both linear;
+        animation-timeline: view();
+        animation-range: entry 0% entry 18%;
+      }
+      @keyframes reveal {
+        from {
+          opacity: 0.4;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-copy {
+      animation: hero-enter 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+    @keyframes hero-enter {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+  @view-transition {
+    navigation: auto;
+  }
+}

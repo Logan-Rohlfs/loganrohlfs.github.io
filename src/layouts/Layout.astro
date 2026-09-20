@@ -1,0 +1,123 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import '../styles/fonts.css';
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import '../styles/global.css';
+interface Props {
+  title?: string;
+  description?: string;
+  home?: boolean;
+}
+const canonicalPath =
+  Astro.url.pathname === '/index.html' ? '/' : Astro.url.pathname;
+const {
+  title,
+  description = 'Logan Rohlfs — Computer Engineering at Texas Tech. Flight software, custom avionics, and ground systems. Seeking internships and co-ops; graduating Fall 2027.',
+  home = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title ? `${title} | Logan Rohlfs` : 'Logan Rohlfs | Computer Engineering & Avionics'}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#101214" />
+    <link rel="canonical" href={new URL(canonicalPath, Astro.site)} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      property="og:title"
+      content={
+        title
+          ? `${title} | Logan Rohlfs`
+          : 'Logan Rohlfs | Computer Engineering & Avionics'
+      }
+    />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={new URL(canonicalPath, Astro.site)} />
+    <script is:inline>
+      try {
+        const theme = localStorage.getItem('portfolio-theme');
+        if (theme === 'light') document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
+  </head>
+  <body class:list={[{ 'home-page': home }]}>
+    <svg class="brand-filter-defs" aria-hidden="true">
+      <defs>
+        <filter id="brand-on-dark" color-interpolation-filters="sRGB">
+          <feColorMatrix
+            in="SourceGraphic"
+            type="luminanceToAlpha"
+            result="luminance"
+          />
+          <feComponentTransfer in="luminance" result="dark-pixels">
+            <feFuncA type="discrete" tableValues="1 0 0 0 0 0 0 0 0 0" />
+          </feComponentTransfer>
+          <feComposite
+            in="dark-pixels"
+            in2="SourceAlpha"
+            operator="in"
+            result="dark-mask"
+          />
+          <feFlood flood-color="#f0f2f4" result="light-color" />
+          <feComposite
+            in="light-color"
+            in2="dark-mask"
+            operator="in"
+            result="light-dark-pixels"
+          />
+          <feMerge>
+            <feMergeNode in="SourceGraphic" />
+            <feMergeNode in="light-dark-pixels" />
+          </feMerge>
+        </filter>
+      </defs>
+    </svg>
+    <a href="#main" class="skip-link">
+      Skip to content
+    </a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <dialog class="lightbox" aria-labelledby="lightbox-caption">
+      <div class="lightbox-toolbar">
+        <span class="mono">Image detail</span>
+        <button
+          type="button"
+          class="icon-button lightbox-close"
+          aria-label="Close image"
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <img class="lightbox-image" alt="" width="1600" height="1000" />
+      <p id="lightbox-caption"></p>
+      <div class="lightbox-controls">
+        <button
+          type="button"
+          class="button lightbox-prev"
+          aria-label="Previous image"
+        >
+          ← Previous
+        </button>
+        <span class="lightbox-count mono"></span>
+        <button
+          type="button"
+          class="button lightbox-next"
+          aria-label="Next image"
+        >
+          Next →
+        </button>
+      </div>
+    </dialog>
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

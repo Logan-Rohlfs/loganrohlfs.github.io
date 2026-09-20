@@ -1,0 +1,106 @@
+@layer components {
+  .organization-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    height: 92px;
+    padding: 8px 0;
+    flex-shrink: 0;
+  }
+  .organization-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: url('#brand-on-dark');
+    opacity: 1;
+  }
+  .organization-logo--texasTech img {
+    filter: none;
+  }
+  :root[data-theme='light'] .organization-logo img {
+    filter: none;
+    opacity: 1;
+  }
+  .brand-filter-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  .organization-logo--symbol img {
+    width: auto;
+    max-width: 72px;
+  }
+  .organization-logo--compact {
+    width: 180px;
+    height: 54px;
+    padding: 4px 0;
+  }
+  .organization-logo--compact.organization-logo--symbol {
+    width: 64px;
+  }
+  .case-heading-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .education-inline {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+  }
+  .education-inline .organization-logo {
+    width: 72px;
+    height: 82px;
+    padding: 6px 0;
+  }
+  .content-pending {
+    margin-top: 1.5rem;
+    border: 1px dashed var(--line);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    color: var(--muted);
+  }
+  .content-pending summary {
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+  .content-pending p {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.75;
+  }
+}
+@layer responsive {
+  @media (max-width: 800px) {
+    .experience-row .organization-logo {
+      grid-row: 1 / 3;
+      width: 100%;
+      height: 78px;
+      padding: 6px 0;
+    }
+  }
+  @media (max-width: 540px) {
+    .experience-row .organization-logo {
+      height: 68px;
+      padding: 5px 0;
+    }
+    .case-heading-row {
+      align-items: start;
+    }
+    .case-heading-row .eyebrow {
+      max-width: 190px;
+    }
+    .case-heading-row .organization-logo--compact {
+      width: 118px;
+      height: 42px;
+      padding: 4px 0;
+    }
+    .case-heading-row .organization-logo--symbol {
+      width: 42px;
+    }
+  }
+}

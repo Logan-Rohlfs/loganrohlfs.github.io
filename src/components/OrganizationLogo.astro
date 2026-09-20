@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import { getSource } from '../lib/images';
+import { organizations, type OrganizationKey } from '../data/organizations';
+interface Props {
+  organization: OrganizationKey;
+  compact?: boolean;
+}
+const { organization, compact = false } = Astro.props;
+const brand = organizations[organization];
+---
+
+<span
+  class:list={[
+    'organization-logo',
+    `organization-logo--${organization}`,
+    `organization-logo--${brand.shape}`,
+    { 'organization-logo--compact': compact },
+  ]}
+>
+  <Image
+    src={getSource(brand.src)}
+    alt={`${brand.name} logo`}
+    widths={brand.shape === 'symbol' ? [64, 96, 128] : [180, 280, 420]}
+    sizes={compact ? '180px' : '220px'}
+    format="webp"
+    quality={95}
+    loading="lazy"
+  />
+</span>

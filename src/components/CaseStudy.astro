@@ -1,0 +1,145 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import OrganizationLogo from './OrganizationLogo.astro';
+import { getImage } from 'astro:assets';
+import { getSource } from '../lib/images';
+import type { Entry } from '../data/types';
+interface Props {
+  entry: Entry;
+  index: number;
+}
+const { entry, index } = Astro.props;
+const poster = entry.video
+  ? await getImage({
+      src: getSource(entry.video.poster),
+      width: 1100,
+      format: 'webp',
+    })
+  : null;
+---
+
+<article
+  class="case-study"
+  id={entry.id}
+  aria-labelledby={`${entry.id}-title`}
+  data-gallery
+>
+  <header class="case-header">
+    <div class="case-heading-row">
+      <p class="eyebrow">
+        {String(index + 1).padStart(2, '0')} / {entry.category}
+      </p>
+      {entry.logo && <OrganizationLogo organization={entry.logo} compact />}
+    </div>
+    <h2 id={`${entry.id}-title`}>{entry.title}</h2>
+    <div class="case-meta">
+      <span>{entry.organization}</span>
+      <span>{entry.period}</span>
+      <span>{entry.role}</span>
+    </div>
+  </header>
+  <div class="case-lead">
+    <div>
+      <p class="case-summary">{entry.summary}</p>
+      {entry.status && <span class="status">{entry.status}</span>}
+    </div>
+    <Photo class="case-cover" media={entry.cover} zoom caption />
+  </div>
+  {entry.stats && (
+    <div class="stats-row">
+      {entry.stats.map((stat) => (
+        <div class="stat">
+          <strong>{stat.value}</strong>
+          <span>{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  )}
+  <div class="case-sections">
+    {entry.sections.map((section) => (
+      <section>
+        <h3>{section.title}</h3>
+        {section.text && <p>{section.text}</p>}
+        {section.points && (
+          <ul>
+            {section.points.map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+        )}
+      </section>
+    ))}
+  </div>
+  {entry.note && (
+    <aside class="case-note">
+      <h3>{entry.note.title}</h3>
+      <p>{entry.note.text}</p>
+    </aside>
+  )}
+  {entry.pending && (
+    <details class="content-pending">
+      <summary>{entry.pending.title}</summary>
+      <p>{entry.pending.prompt}</p>
+    </details>
+  )}
+  {entry.timeline && (
+    <section class="timeline">
+      <h3>Development timeline</h3>
+      {entry.timeline.map((item) => (
+        <div class="timeline-item">
+          <span class="mono">{item.date}</span>
+          <div>
+            <h4>{item.title}</h4>
+            <p>{item.text}</p>
+          </div>
+        </div>
+      ))}
+    </section>
+  )}
+  {entry.gallery && (
+    <div
+      class:list={[
+        'case-gallery',
+        `case-gallery--${entry.galleryColumns ?? 2}-up`,
+      ]}
+    >
+      {entry.gallery.map((media) => (
+        <Photo media={media} zoom caption />
+      ))}
+    </div>
+  )}
+  {entry.video && (
+    <figure class="case-video" id={`${entry.id}-telemetry`}>
+      <video
+        controls
+        playsinline
+        preload="none"
+        poster={poster!.src}
+        aria-label="IREC 2026 live telemetry recording"
+        aria-describedby={`${entry.id}-video-caption`}
+      >
+        <source src={entry.video.src} type="video/mp4" />
+        <a href={entry.video.src}>Download telemetry recording</a>
+      </video>
+      <figcaption id={`${entry.id}-video-caption`}>
+        {entry.video.caption}
+      </figcaption>
+    </figure>
+  )}
+  {entry.links && (
+    <div class="case-links">
+      {entry.links.map((link) => (
+        <a
+          class="text-link"
+          href={link.href}
+          target={link.href.startsWith('http') ? '_blank' : undefined}
+          rel={link.href.startsWith('http') ? 'noopener' : undefined}
+        >
+          {link.label}
+          <Icon />
+        </a>
+      ))}
+    </div>
+  )}
+</article>

@@ -1,0 +1,104 @@
+@layer components {
+  .contact-section {
+    border-top: 1px solid var(--line);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 7vw, 7rem);
+  }
+  .contact-copy h2 {
+    margin: 1rem 0 1.5rem;
+  }
+  .contact-copy > p {
+    max-width: 450px;
+  }
+  .contact-email {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 7px;
+    overflow-wrap: anywhere;
+  }
+  .contact-email:hover {
+    color: var(--accent);
+  }
+  .contact-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+  }
+  .contact-form {
+    display: grid;
+    gap: 1.15rem;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--text);
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    min-width: 0;
+  }
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 130px;
+  }
+  .contact-form .button {
+    justify-self: start;
+  }
+  .form-note {
+    font-size: 0.8125rem;
+  }
+  .form-status {
+    font-size: 0.875rem;
+    min-height: 1.5em;
+  }
+  .site-footer {
+    border-top: 1px solid var(--line);
+    padding-block: 2rem;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  .footer-name {
+    font-weight: 650;
+    font-size: 0.9375rem;
+  }
+  .footer-name span {
+    display: block;
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 0.8125rem;
+    margin-top: 0.3rem;
+  }
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+  }
+  .footer-year {
+    color: var(--muted);
+  }
+}

@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ExperienceRow from '../components/ExperienceRow.astro';
+import SectionIndex from '../components/SectionIndex.astro';
+import CaseStudy from '../components/CaseStudy.astro';
+import ContactLink from '../components/ContactLink.astro';
+import { experience } from '../data/experience';
+---
+
+<Layout
+  title="Experience"
+  description="Logan Rohlfs’ experience in flight software at Firefly Aerospace, avionics leadership with Texas Tech Space Raiders, and STEM outreach."
+>
+  <div class="container">
+    <header class="page-intro">
+      <p class="eyebrow">Engineering portfolio / 02</p>
+      <h1>
+        Experience & leadership<span class="accent">.</span>
+      </h1>
+      <p>
+        Building systems, supporting a team, and learning from the work.
+        Industry experience and hands-on leadership.
+      </p>
+    </header>
+    <section
+      class="experience-rows project-index"
+      aria-label="Experience overview"
+    >
+      {experience.map((entry) => (
+        <ExperienceRow entry={entry} local />
+      ))}
+    </section>
+    <div class="detail-layout">
+      <SectionIndex entries={experience} />
+      <div>
+        {experience.map((entry, index) => (
+          <CaseStudy entry={entry} index={index} />
+        ))}
+      </div>
+    </div>
+  </div>
+  <ContactLink />
+</Layout>

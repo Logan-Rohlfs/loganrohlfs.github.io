@@ -1,0 +1,37 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import OrganizationLogo from './OrganizationLogo.astro';
+import type { Entry } from '../data/types';
+interface Props {
+  entry: Entry;
+  index: number;
+  local?: boolean;
+}
+const { entry, index, local = false } = Astro.props;
+---
+
+<a class="project-card" href={`${local ? '' : '/projects.html'}#${entry.id}`}>
+  <div class="card-image">
+    {entry.previewLogo && entry.logo ? (
+      <div class="card-brand">
+        <OrganizationLogo organization={entry.logo} />
+      </div>
+    ) : (
+      <Photo media={entry.preview ?? entry.cover} />
+    )}
+    <span class="card-number mono">{String(index + 1).padStart(2, '0')}</span>
+    <span class="card-arrow">
+      <Icon />
+    </span>
+  </div>
+  <div class="card-copy">
+    <p class="eyebrow">{entry.category}</p>
+    <h3>{entry.title}</h3>
+    <p>{entry.summary}</p>
+    <span class="card-footer mono">
+      {entry.period}
+      <span aria-hidden="true">↗</span>
+    </span>
+  </div>
+</a>
